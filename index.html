@@ -171,7 +171,7 @@ footer p { margin: 0 0 4px; }
       if (opts.click) { tr.className = 'click'; tr.tabIndex = 0; }
       cols.forEach(([k, f, cls], i) => {
         const td = el('td', cls || '');
-        if (k === 'status') { const v = String(r[k] || ''); td.appendChild(el('span', 'pill' + (/^(active|live)$/i.test(v) ? ' ok' : /disapproved/i.test(v) ? ' bad' : ''), v)); }
+        if (k === 'status') { const v = String(r[k] || ''); td.appendChild(el('span', 'pill' + (/^(active|live)$/i.test(v) ? ' ok' : /error|not approved|disapproved/i.test(v) ? ' bad' : ''), v)); }
         else { if (k === sk && i > 0) { const b = el('span', 'bar'); b.style.width = Math.max(2, 44 * (r[k] || 0) / max) + 'px'; td.appendChild(b); } td.appendChild(document.createTextNode(f(r[k]))); }
         tr.appendChild(td);
       });

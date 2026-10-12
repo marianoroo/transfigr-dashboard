@@ -27,7 +27,7 @@
    {
     "id": "120245787341140005",
     "name": "Instagram post: Still getting your head around...",
-    "status": "active",
+    "status": "error",
     "spend": 0,
     "impressions": 0,
     "reach": 0,
@@ -43,7 +43,7 @@
    {
     "id": "120249513618090005",
     "name": "Instagram post: So you got paid. What you do next...",
-    "status": "active",
+    "status": "completed",
     "spend": 48.83,
     "impressions": 2013,
     "reach": 1390,
@@ -59,7 +59,7 @@
    {
     "id": "120249209098630005",
     "name": "Instagram post: What is the singles tax? It's...",
-    "status": "active",
+    "status": "completed",
     "spend": 48.85,
     "impressions": 6565,
     "reach": 5543,
@@ -75,7 +75,7 @@
    {
     "id": "120248810768840005",
     "name": "Instagram post: Financial wellbeing isn't...",
-    "status": "active",
+    "status": "completed",
     "spend": 20.86,
     "impressions": 1826,
     "reach": 1442,
@@ -91,7 +91,7 @@
    {
     "id": "120248810732210005",
     "name": "Instagram post: Is there a price on loyalty? 💸...",
-    "status": "active",
+    "status": "completed",
     "spend": 20.84,
     "impressions": 1432,
     "reach": 1240,
@@ -107,7 +107,7 @@
    {
     "id": "120247635978870005",
     "name": "Instagram post: Think Wills are just for old...",
-    "status": "active",
+    "status": "completed",
     "spend": 48.85,
     "impressions": 3530,
     "reach": 2730,
@@ -123,7 +123,7 @@
    {
     "id": "120247187799180005",
     "name": "Instagram post: Think Wills are just for old...",
-    "status": "active",
+    "status": "completed",
     "spend": 48.8,
     "impressions": 2261,
     "reach": 1899,
@@ -139,7 +139,7 @@
    {
     "id": "120246692492840005",
     "name": "Instagram post: Your super is not automatically a...",
-    "status": "active",
+    "status": "completed",
     "spend": 48.64,
     "impressions": 3536,
     "reach": 3008,
@@ -155,7 +155,7 @@
    {
     "id": "120246248675050005",
     "name": "Instagram post: Building an emergency fund when...",
-    "status": "active",
+    "status": "completed",
     "spend": 48.8,
     "impressions": 2427,
     "reach": 1943,
@@ -171,7 +171,7 @@
    {
     "id": "120245788832200005",
     "name": "Instagram post: Still using the same old budget?...",
-    "status": "active",
+    "status": "completed",
     "spend": 48.87,
     "impressions": 1939,
     "reach": 1601,
@@ -187,7 +187,7 @@
    {
     "id": "120245365903250005",
     "name": "Instagram post: Building an emergency fund when...",
-    "status": "active",
+    "status": "completed",
     "spend": 48.89,
     "impressions": 2075,
     "reach": 1560,
@@ -203,7 +203,7 @@
    {
     "id": "120244622837150005",
     "name": "Instagram post: In case you missed it, grocery...",
-    "status": "active",
+    "status": "completed",
     "spend": 48.91,
     "impressions": 1841,
     "reach": 1384,
@@ -219,7 +219,7 @@
    {
     "id": "120243878861140005",
     "name": "Instagram post: So you've started building your...",
-    "status": "active",
+    "status": "completed",
     "spend": 48.73,
     "impressions": 4521,
     "reach": 3217,
@@ -235,7 +235,7 @@
    {
     "id": "120243470732240005",
     "name": "Instagram post: Now more than ever, it’s...",
-    "status": "active",
+    "status": "completed",
     "spend": 48.65,
     "impressions": 2626,
     "reach": 1840,
@@ -251,7 +251,7 @@
    {
     "id": "120242836881480005",
     "name": "Instagram post: The data doesn't lie – everything...",
-    "status": "active",
+    "status": "completed",
     "spend": 48.77,
     "impressions": 1791,
     "reach": 1392,
@@ -267,7 +267,7 @@
    {
     "id": "120242563468590005",
     "name": "Instagram post: Do you find yourself spending...",
-    "status": "active",
+    "status": "completed",
     "spend": 48.72,
     "impressions": 1398,
     "reach": 1000,
@@ -283,7 +283,7 @@
    {
     "id": "120242252757480005",
     "name": "Instagram post: Ever notice how some people can...",
-    "status": "active",
+    "status": "completed",
     "spend": 27.5,
     "impressions": 802,
     "reach": 642,
@@ -299,7 +299,7 @@
    {
     "id": "120242252701140005",
     "name": "Instagram post: According to Roy Morgan's 'Single...",
-    "status": "active",
+    "status": "completed",
     "spend": 20.88,
     "impressions": 911,
     "reach": 769,
@@ -353,7 +353,7 @@
    {
     "id": "120245787341330005",
     "name": "Instagram post: Still getting your head around...",
-    "status": "active",
+    "status": "error",
     "spend": 0,
     "impressions": 0,
     "reach": 0,
@@ -371,7 +371,7 @@
    {
     "id": "120249513618280005",
     "name": "Instagram post: So you got paid. What you do next...",
-    "status": "active",
+    "status": "completed",
     "spend": 48.83,
     "impressions": 2013,
     "reach": 1390,
@@ -389,7 +389,7 @@
    {
     "id": "120249209098740005",
     "name": "Instagram post: What is the singles tax? It's...",
-    "status": "active",
+    "status": "completed",
     "spend": 48.85,
     "impressions": 6565,
     "reach": 5543,
@@ -407,7 +407,7 @@
    {
     "id": "120248810769600005",
     "name": "Instagram post: Financial wellbeing isn't...",
-    "status": "active",
+    "status": "completed",
     "spend": 20.86,
     "impressions": 1826,
     "reach": 1442,
@@ -425,7 +425,7 @@
    {
     "id": "120248810732820005",
     "name": "Instagram post: Is there a price on loyalty? 💸...",
-    "status": "active",
+    "status": "completed",
     "spend": 20.84,
     "impressions": 1432,
     "reach": 1240,
@@ -443,7 +443,7 @@
    {
     "id": "120247635980060005",
     "name": "Instagram post: Think Wills are just for old...",
-    "status": "active",
+    "status": "completed",
     "spend": 48.85,
     "impressions": 3530,
     "reach": 2730,
@@ -461,7 +461,7 @@
    {
     "id": "120247187799370005",
     "name": "Instagram post: Think Wills are just for old...",
-    "status": "active",
+    "status": "completed",
     "spend": 48.8,
     "impressions": 2261,
     "reach": 1899,
@@ -479,7 +479,7 @@
    {
     "id": "120246692493320005",
     "name": "Instagram post: Your super is not automatically a...",
-    "status": "active",
+    "status": "completed",
     "spend": 48.64,
     "impressions": 3536,
     "reach": 3008,
@@ -497,7 +497,7 @@
    {
     "id": "120246248675230005",
     "name": "Instagram post: Building an emergency fund when...",
-    "status": "active",
+    "status": "completed",
     "spend": 48.8,
     "impressions": 2427,
     "reach": 1943,
@@ -515,7 +515,7 @@
    {
     "id": "120245788832450005",
     "name": "Instagram post: Still using the same old budget?...",
-    "status": "active",
+    "status": "completed",
     "spend": 48.87,
     "impressions": 1939,
     "reach": 1601,
@@ -533,7 +533,7 @@
    {
     "id": "120245365903500005",
     "name": "Instagram post: Building an emergency fund when...",
-    "status": "active",
+    "status": "completed",
     "spend": 48.89,
     "impressions": 2075,
     "reach": 1560,
@@ -551,7 +551,7 @@
    {
     "id": "120244622837460005",
     "name": "Instagram post: In case you missed it, grocery...",
-    "status": "active",
+    "status": "completed",
     "spend": 48.91,
     "impressions": 1841,
     "reach": 1384,
@@ -569,7 +569,7 @@
    {
     "id": "120243878861400005",
     "name": "Instagram post: So you've started building your...",
-    "status": "active",
+    "status": "completed",
     "spend": 48.73,
     "impressions": 4521,
     "reach": 3217,
@@ -587,7 +587,7 @@
    {
     "id": "120243470732750005",
     "name": "Instagram post: Now more than ever, it’s...",
-    "status": "active",
+    "status": "completed",
     "spend": 48.65,
     "impressions": 2626,
     "reach": 1840,
@@ -605,7 +605,7 @@
    {
     "id": "120242836882360005",
     "name": "Instagram post: The data doesn't lie – everything...",
-    "status": "active",
+    "status": "completed",
     "spend": 48.77,
     "impressions": 1791,
     "reach": 1392,
@@ -623,7 +623,7 @@
    {
     "id": "120242563468740005",
     "name": "Instagram post: Do you find yourself spending...",
-    "status": "active",
+    "status": "completed",
     "spend": 48.72,
     "impressions": 1398,
     "reach": 1000,
@@ -641,7 +641,7 @@
    {
     "id": "120242252758330005",
     "name": "Instagram post: Ever notice how some people can...",
-    "status": "active",
+    "status": "completed",
     "spend": 27.5,
     "impressions": 802,
     "reach": 642,
@@ -659,7 +659,7 @@
    {
     "id": "120242252701370005",
     "name": "Instagram post: According to Roy Morgan's 'Single...",
-    "status": "active",
+    "status": "completed",
     "spend": 20.88,
     "impressions": 911,
     "reach": 769,
@@ -839,7 +839,7 @@
    {
     "id": "120250598420070005",
     "name": "Videos – 3",
-    "status": "adset paused",
+    "status": "inactive",
     "spend": 0,
     "impressions": 0,
     "reach": 0,
@@ -859,7 +859,7 @@
    {
     "id": "120250598400110005",
     "name": "Videos – 2",
-    "status": "adset paused",
+    "status": "inactive",
     "spend": 0,
     "impressions": 0,
     "reach": 0,
@@ -879,7 +879,7 @@
    {
     "id": "120250598523760005",
     "name": "Image - 3",
-    "status": "adset paused",
+    "status": "inactive",
     "spend": 0,
     "impressions": 0,
     "reach": 0,
@@ -899,7 +899,7 @@
    {
     "id": "120250598431590005",
     "name": "Videos – 4",
-    "status": "adset paused",
+    "status": "inactive",
     "spend": 0,
     "impressions": 0,
     "reach": 0,
@@ -919,7 +919,7 @@
    {
     "id": "120250598239650005",
     "name": "Videos – 1",
-    "status": "adset paused",
+    "status": "inactive",
     "spend": 0,
     "impressions": 0,
     "reach": 0,
@@ -939,7 +939,7 @@
    {
     "id": "120250598439250005",
     "name": "Videos – 5",
-    "status": "adset paused",
+    "status": "inactive",
     "spend": 0,
     "impressions": 0,
     "reach": 0,
@@ -959,7 +959,7 @@
    {
     "id": "120250598455940005",
     "name": "Image - 1",
-    "status": "adset paused",
+    "status": "inactive",
     "spend": 0,
     "impressions": 0,
     "reach": 0,
@@ -979,7 +979,7 @@
    {
     "id": "120250598498640005",
     "name": "Image - 2",
-    "status": "adset paused",
+    "status": "inactive",
     "spend": 0,
     "impressions": 0,
     "reach": 0,
@@ -999,7 +999,7 @@
    {
     "id": "120245787342120005",
     "name": "Instagram post: Still getting your head around...",
-    "status": "disapproved",
+    "status": "not approved",
     "spend": 0,
     "impressions": 0,
     "reach": 0,
@@ -1019,7 +1019,7 @@
    {
     "id": "120249513618960005",
     "name": "Instagram post: So you got paid. What you do next...",
-    "status": "active",
+    "status": "completed",
     "spend": 48.83,
     "impressions": 2013,
     "reach": 1390,
@@ -1039,7 +1039,7 @@
    {
     "id": "120249209099290005",
     "name": "Instagram post: What is the singles tax? It's...",
-    "status": "active",
+    "status": "completed",
     "spend": 48.85,
     "impressions": 6565,
     "reach": 5543,
@@ -1059,7 +1059,7 @@
    {
     "id": "120248810770390005",
     "name": "Instagram post: Financial wellbeing isn't...",
-    "status": "active",
+    "status": "completed",
     "spend": 20.86,
     "impressions": 1826,
     "reach": 1442,
@@ -1079,7 +1079,7 @@
    {
     "id": "120248810733380005",
     "name": "Instagram post: Is there a price on loyalty? 💸...",
-    "status": "active",
+    "status": "completed",
     "spend": 20.84,
     "impressions": 1432,
     "reach": 1240,
@@ -1099,7 +1099,7 @@
    {
     "id": "120247635984070005",
     "name": "Instagram post: Think Wills are just for old...",
-    "status": "active",
+    "status": "completed",
     "spend": 48.85,
     "impressions": 3530,
     "reach": 2730,
@@ -1119,7 +1119,7 @@
    {
     "id": "120247187800400005",
     "name": "Instagram post: Think Wills are just for old...",
-    "status": "active",
+    "status": "completed",
     "spend": 48.8,
     "impressions": 2261,
     "reach": 1899,
@@ -1139,7 +1139,7 @@
    {
     "id": "120246692494210005",
     "name": "Instagram post: Your super is not automatically a...",
-    "status": "active",
+    "status": "completed",
     "spend": 48.64,
     "impressions": 3536,
     "reach": 3008,
@@ -1159,7 +1159,7 @@
    {
     "id": "120246248675890005",
     "name": "Instagram post: Building an emergency fund when...",
-    "status": "active",
+    "status": "completed",
     "spend": 48.8,
     "impressions": 2427,
     "reach": 1943,
@@ -1179,7 +1179,7 @@
    {
     "id": "120245788833820005",
     "name": "Instagram post: Still using the same old budget?...",
-    "status": "active",
+    "status": "completed",
     "spend": 48.87,
     "impressions": 1939,
     "reach": 1601,
@@ -1199,7 +1199,7 @@
    {
     "id": "120245365904780005",
     "name": "Instagram post: Building an emergency fund when...",
-    "status": "active",
+    "status": "completed",
     "spend": 48.89,
     "impressions": 2075,
     "reach": 1560,
@@ -1219,7 +1219,7 @@
    {
     "id": "120244622839920005",
     "name": "Instagram post: In case you missed it, grocery...",
-    "status": "active",
+    "status": "completed",
     "spend": 48.91,
     "impressions": 1841,
     "reach": 1384,
@@ -1239,7 +1239,7 @@
    {
     "id": "120243878862030005",
     "name": "Instagram post: So you've started building your...",
-    "status": "active",
+    "status": "completed",
     "spend": 48.73,
     "impressions": 4521,
     "reach": 3217,
@@ -1259,7 +1259,7 @@
    {
     "id": "120243470735830005",
     "name": "Instagram post: Now more than ever, it’s...",
-    "status": "active",
+    "status": "completed",
     "spend": 48.65,
     "impressions": 2626,
     "reach": 1840,
@@ -1279,7 +1279,7 @@
    {
     "id": "120242836886070005",
     "name": "Instagram post: The data doesn't lie – everything...",
-    "status": "active",
+    "status": "completed",
     "spend": 48.77,
     "impressions": 1791,
     "reach": 1392,
@@ -1299,7 +1299,7 @@
    {
     "id": "120242563469390005",
     "name": "Instagram post: Do you find yourself spending...",
-    "status": "active",
+    "status": "completed",
     "spend": 48.72,
     "impressions": 1398,
     "reach": 1000,
@@ -1319,7 +1319,7 @@
    {
     "id": "120242252701980005",
     "name": "Instagram post: According to Roy Morgan's 'Single...",
-    "status": "active",
+    "status": "completed",
     "spend": 20.88,
     "impressions": 911,
     "reach": 769,
