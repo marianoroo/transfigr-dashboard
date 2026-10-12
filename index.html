@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Transfigr Marketing Results</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: one column of cards on Transfigr's cream ground; summary first, detail below. */
+:root {
+  --cream: #FBFCF5; --cream-2: #EDEDE3; --ink: #14181F; --ink-2: #5B5F6B; --line: #E2E1D6;
+  --purple: #7363B2; --purple-soft: #EAE7F6; --mint: #E0FAF7; --teal: #2F9C8F; --amber: #C98A1B;
+  --ok: #2F7D5B; --bad: #B4443A; --panel: #FFFFFF;
+  --font: "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --r: 18px;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--cream); color: var(--ink); font-family: var(--font); font-size: 14px; line-height: 1.45; -webkit-font-smoothing: antialiased; }
+.wrap { max-width: 1180px; margin-inline: auto; padding: 28px 20px 64px; display: flex; flex-direction: column; gap: 28px; }
+header.top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 12px 24px; }
+.brand { font-weight: 700; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--purple); }
+h1 { font-size: clamp(26px, 4vw, 36px); font-weight: 600; margin: 4px 0 6px; letter-spacing: -.01em; text-wrap: balance; }
+.take { margin: 0; color: var(--ink-2); max-width: 70ch; }
+.take b { color: var(--ink); font-weight: 600; }
+.stamp { font-size: 12px; color: var(--ink-2); background: var(--panel); border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; white-space: nowrap; }
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 14px; }
+.kpi { background: var(--panel); border: 1px solid var(--line); border-radius: var(--r); padding: 18px 20px; }
+.kpi:first-child { background: var(--purple); border-color: var(--purple); color: var(--cream); }
+.kpi:first-child .lbl, .kpi:first-child .sub { color: var(--purple-soft); }
+.kpi .lbl { font-size: 12px; color: var(--ink-2); }
+.kpi .val { font-size: 30px; font-weight: 600; margin-top: 6px; font-variant-numeric: tabular-nums; letter-spacing: -.01em; }
+.kpi .sub { font-size: 12px; color: var(--ink-2); margin-top: 4px; }
+section > h2 { font-size: 18px; font-weight: 600; margin: 0 0 4px; }
+section > p.lead { margin: 0 0 14px; font-size: 13px; color: var(--ink-2); max-width: 80ch; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 14px; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--r); padding: 18px 20px; min-width: 0; }
+.card + .card { margin-top: 14px; }
+.grid .card + .card { margin-top: 0; }
+.card h3 { font-size: 15px; font-weight: 600; margin: 0; }
+.card .note { font-size: 12px; color: var(--ink-2); margin: 4px 0 14px; }
+.scroll { overflow: auto; max-height: 30rem; }
+table { width: 100%; border-collapse: collapse; font-size: 12.5px; font-variant-numeric: tabular-nums; }
+th { position: sticky; top: 0; background: var(--panel); text-align: right; font-weight: 500; color: var(--ink-2); padding: 8px 10px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+td { text-align: right; padding: 8px 10px; border-bottom: 1px solid var(--cream-2); white-space: nowrap; }
+th:first-child, td:first-child { text-align: left; white-space: normal; min-width: 14rem; }
+th.l { text-align: left; }
+td.sub { color: var(--ink-2); text-align: left; white-space: normal; min-width: 10rem; }
+td .bar { display: inline-block; height: 6px; border-radius: 3px; background: var(--purple); opacity: .55; margin-right: 8px; vertical-align: middle; }
+tr.click { cursor: pointer; }
+tr.click:hover td, tr.click:focus td { background: var(--mint); }
+tr.click:focus { outline: none; }
+.pill { display: inline-block; font-size: 11px; padding: 1px 8px; border-radius: 999px; background: var(--cream-2); color: var(--ink-2); text-transform: capitalize; }
+.pill.ok { background: var(--mint); color: var(--ok); }
+.pill.bad { background: #F7E3E0; color: var(--bad); }
+.ctrl { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 12px; }
+.seg { display: inline-flex; background: var(--cream-2); border-radius: 999px; padding: 3px; }
+.seg button { font: inherit; font-size: 12.5px; border: 0; background: transparent; color: var(--ink-2); padding: 6px 14px; border-radius: 999px; cursor: pointer; }
+.seg button[aria-selected=true] { background: var(--purple); color: var(--cream); font-weight: 500; }
+.chip { font: inherit; font-size: 12px; border: 1px solid var(--purple); color: var(--purple); background: var(--purple-soft); border-radius: 999px; padding: 4px 12px; cursor: pointer; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+button:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+.legend { display: flex; flex-wrap: wrap; gap: 16px; font-size: 12px; color: var(--ink-2); margin-bottom: 8px; }
+.legend i { display: inline-block; width: 12px; height: 3px; border-radius: 2px; margin-right: 6px; vertical-align: middle; }
+.chart { position: relative; min-height: 280px; }
+.tip { position: absolute; pointer-events: none; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; box-shadow: 0 6px 20px rgba(20,24,31,.12); padding: 8px 10px; font-size: 12px; white-space: nowrap; }
+.tip .d { color: var(--ink-2); margin-bottom: 2px; }
+.tip i { display: inline-block; width: 8px; height: 8px; border-radius: 2px; margin-right: 6px; }
+footer { font-size: 12px; color: var(--ink-2); border-top: 1px solid var(--line); padding-top: 16px; }
+footer p { margin: 0 0 4px; }
+.err { padding: 40px; text-align: center; color: var(--bad); }
+</style>
+</head>
+<body>
+<div class="wrap" id="app">
+  <header class="top">
+    <div>
+      <div class="brand">Transfigr</div>
+      <h1>Marketing results</h1>
+      <p class="take" id="take">Loading…</p>
+    </div>
+    <div class="stamp" id="stamp">—</div>
+  </header>
+
+  <div class="kpis">
+    <div class="kpi"><div class="lbl">Paid media spend · since launch</div><div class="val" id="k-spend">—</div><div class="sub">Meta + LinkedIn</div></div>
+    <div class="kpi"><div class="lbl">Email sign-ups · since launch</div><div class="val" id="k-signups">—</div><div class="sub">Subscribed to email marketing</div></div>
+    <div class="kpi"><div class="lbl">Health checks completed</div><div class="val" id="k-completed">—</div><div class="sub">Unique profiles per week, summed</div></div>
+    <div class="kpi"><div class="lbl">Paid spend per completed check</div><div class="val" id="k-cpc">—</div><div class="sub">Blended ratio, not ad-attributed</div></div>
+  </div>
+
+  <section id="paid">
+    <h2>Paid media</h2>
+    <p class="lead">Meta from March 2026, LinkedIn from 29 Sep 2026. All figures in AUD, lifetime to the update date.</p>
+    <div class="card">
+      <h3>Channel comparison</h3>
+      <div class="note">CTR and CPC use all clicks.</div>
+      <div class="scroll"><table id="t-channels"><thead><tr><th>Channel</th><th>Spend</th><th>Impressions</th><th>Clicks</th><th>CTR</th><th>CPC</th><th>CPM</th><th>Leads</th></tr></thead><tbody></tbody></table></div>
+    </div>
+    <div class="card" id="meta">
+      <h3>Meta performance</h3>
+      <div class="note">Highest spend first. Click a campaign to see its ad sets, or an ad set to see its ads.</div>
+      <div class="ctrl">
+        <div class="seg" role="tablist" aria-label="Meta level">
+          <button type="button" data-level="campaigns" role="tab">Campaigns</button>
+          <button type="button" data-level="adsets" role="tab">Ad sets</button>
+          <button type="button" data-level="ads" role="tab">Ads</button>
+        </div>
+        <button type="button" class="chip" id="picked" hidden></button>
+      </div>
+      <div class="scroll"><table id="t-meta"><thead></thead><tbody></tbody></table></div>
+    </div>
+    <div class="card">
+      <h3>LinkedIn ad sets</h3>
+      <div class="note">Financial Training Australia account.</div>
+      <div class="scroll"><table id="t-li"><thead><tr><th>Ad set</th><th>Status</th><th>Spend</th><th>Impr.</th><th>Clicks</th><th>CTR</th><th>CPC</th><th>Leads</th><th>Cost / lead</th></tr></thead><tbody></tbody></table></div>
+    </div>
+  </section>
+
+  <section id="klaviyo">
+    <h2>Email &amp; health checks</h2>
+    <p class="lead">From Klaviyo. Health check events started arriving in late August 2026 once the app integration went live.</p>
+    <div class="card">
+      <h3>Weekly sign-ups and health checks</h3>
+      <div class="note">Unique profiles per week (Monday start, Melbourne time), up to the update date. A dashed final segment is the current week to date.</div>
+      <div class="legend" id="legend"></div>
+      <div class="chart" id="chart"></div>
+    </div>
+    <div class="grid" style="margin-top:14px">
+      <div class="card">
+        <h3>Flows</h3>
+        <div class="note">Last 365 days. Conversions = health checks completed after an email.</div>
+        <div class="scroll"><table id="t-flows"><thead><tr><th>Flow</th><th>Recipients</th><th>Open rate</th><th>Click rate</th><th>Conv.</th><th>Unsubs</th></tr></thead><tbody></tbody></table></div>
+      </div>
+      <div class="card">
+        <h3>Sign-up forms</h3>
+        <div class="note">Last 365 days. Submit rate = submits ÷ unique viewers.</div>
+        <div class="scroll"><table id="t-forms"><thead><tr><th>Form</th><th>Status</th><th>Viewers</th><th>Submits</th><th>Submit rate</th></tr></thead><tbody></tbody></table></div>
+      </div>
+    </div>
+    <div class="card" style="margin-top:14px">
+      <h3>Email campaigns</h3>
+      <div class="note">Last 365 days.</div>
+      <div class="scroll"><table id="t-camps"><thead><tr><th>Campaign</th><th>Sent</th><th>Recipients</th><th>Open rate</th><th>Click rate</th><th>Conv.</th><th>Unsubs</th></tr></thead><tbody></tbody></table></div>
+    </div>
+  </section>
+
+  <footer id="foot"></footer>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script>
+(function () {
+  const C = ['#7363B2', '#2F9C8F', '#C98A1B'];
+  const money = (v) => v == null ? '—' : 'A$' + d3.format(',.2f')(v);
+  const int = (v) => v == null ? '—' : d3.format(',')(v);
+  const p1 = (v) => v == null ? '—' : d3.format('.1%')(v);
+  const txt = (v) => v ?? '—';
+  const $ = (s) => document.querySelector(s);
+  const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
+  const sum = (rows, k) => rows.reduce((s, r) => s + (Number(r[k]) || 0), 0);
+
+  function fill(table, rows, cols, opts = {}) {
+    const tb = table.querySelector('tbody');
+    const sk = opts.sort; if (sk) rows = rows.slice().sort((a, b) => (b[sk] || 0) - (a[sk] || 0));
+    const max = sk ? (d3.max(rows, (r) => r[sk]) || 1) : 1;
+    tb.replaceChildren(...rows.map((r) => {
+      const tr = el('tr'); if (opts.key) tr.dataset.key = r[opts.key];
+      if (opts.click) { tr.className = 'click'; tr.tabIndex = 0; }
+      cols.forEach(([k, f, cls], i) => {
+        const td = el('td', cls || '');
+        if (k === 'status') { const v = String(r[k] || ''); td.appendChild(el('span', 'pill' + (/^(active|live)$/i.test(v) ? ' ok' : /disapproved/i.test(v) ? ' bad' : ''), v)); }
+        else { if (k === sk && i > 0) { const b = el('span', 'bar'); b.style.width = Math.max(2, 44 * (r[k] || 0) / max) + 'px'; td.appendChild(b); } td.appendChild(document.createTextNode(f(r[k]))); }
+        tr.appendChild(td);
+      });
+      return tr;
+    }));
+  }
+
+  function render(D) {
+    const M = D.meta, L = D.linkedin, K = D.klaviyo;
+    const asOf = new Date(D.generated_at);
+    $('#stamp').textContent = 'Updated ' + asOf.toLocaleString('en-AU', { timeZone: 'Australia/Melbourne', day: 'numeric', month: 'short', year: 'numeric', hour: 'numeric', minute: '2-digit' });
+
+    const ch = (name, rows, leads) => { const sp = sum(rows, 'spend'), im = sum(rows, 'impressions'), cl = sum(rows, 'clicks'); return { channel: name, spend: sp, impressions: im, clicks: cl, ctr: im ? cl / im : null, cpc: cl ? sp / cl : null, cpm: im ? sp / im * 1000 : null, leads }; };
+    const channels = [ch('Meta', M.campaigns, null), ch('LinkedIn', L, sum(L, 'leads'))];
+    const total = sum(channels, 'spend'), signups = sum(K.weekly, 'signups'), completed = sum(K.weekly, 'completed');
+    $('#k-spend').textContent = money(total);
+    $('#k-signups').textContent = int(signups);
+    $('#k-completed').textContent = int(completed);
+    $('#k-cpc').textContent = completed ? money(total / completed) : '—';
+    const take = $('#take'); take.replaceChildren('Meta has taken ', el('b', null, p1(total ? channels[0].spend / total : null)), ' of paid spend. Klaviyo has captured ', el('b', null, int(signups)), ' email sign-ups and ', el('b', null, int(completed)), ' completed Financial Health Checks.');
+
+    fill($('#t-channels'), channels, [['channel', txt], ['spend', money], ['impressions', int], ['clicks', int], ['ctr', p1], ['cpc', money], ['cpm', money], ['leads', int]], { sort: 'spend' });
+    fill($('#t-li'), L, [['ad_set', txt], ['status', txt], ['spend', money], ['impressions', int], ['clicks', int], ['ctr', p1], ['cpc', money], ['leads', int], ['cost_per_lead', money]], { sort: 'spend' });
+    fill($('#t-flows'), K.flows, [['flow', txt], ['recipients', int], ['open_rate', p1], ['click_rate', p1], ['conversions', int], ['unsubscribes', int]], { sort: 'recipients' });
+    fill($('#t-forms'), K.forms, [['form', txt], ['status', txt], ['viewers', int], ['submits', int], ['submit_rate', p1]], { sort: 'submits' });
+    fill($('#t-camps'), K.campaigns, [['campaign', txt], ['sent', txt], ['recipients', int], ['open_rate', p1], ['click_rate', p1], ['conversions', int], ['unsubscribes', int]]);
+
+    // Meta drill-down
+    const state = { level: 'campaigns', campaign: null, adset: null };
+    const metrics = [['spend', money], ['impressions', int], ['link_clicks', int], ['ctr', p1], ['cpc', money], ['cpm', money], ['results', int], ['result_type', txt, 'sub'], ['cost_per_result', money]];
+    const heads = { campaigns: ['Campaign', 'Status'], adsets: ['Ad set', 'Campaign', 'Status'], ads: ['Ad', 'Ad set', 'Status'] };
+    const mhead = ['Spend', 'Impr.', 'Link clicks', 'CTR', 'CPC', 'CPM', 'Results', 'Result type', 'Cost / result'];
+    const tm = $('#t-meta'); const picked = $('#picked');
+    function drawMeta() {
+      document.querySelectorAll('.seg button').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.level === state.level)));
+      const thr = el('tr'); [...heads[state.level], ...mhead].forEach((h, i) => thr.appendChild(el('th', (h === 'Result type' || (i === 1 && state.level !== 'campaigns')) ? 'l' : null, h))); tm.querySelector('thead').replaceChildren(thr);
+      let rows = M[state.level], lead;
+      if (state.level === 'campaigns') lead = [['name', txt], ['status', txt]];
+      if (state.level === 'adsets') { lead = [['name', txt], ['campaign_name', txt, 'sub'], ['status', txt]]; if (state.campaign) rows = rows.filter((r) => r.campaign_id === state.campaign); }
+      if (state.level === 'ads') { lead = [['name', txt], ['adset_name', txt, 'sub'], ['status', txt]]; if (state.adset) rows = rows.filter((r) => r.adset_id === state.adset); else if (state.campaign) rows = rows.filter((r) => r.campaign_id === state.campaign); }
+      fill(tm, rows, [...lead, ...metrics], { sort: 'spend', key: 'id', click: state.level !== 'ads' });
+      const cn = (M.campaigns.find((r) => r.id === state.campaign) || {}).name, sn = (M.adsets.find((r) => r.id === state.adset) || {}).name;
+      const label = state.level === 'ads' && state.adset ? sn : state.level !== 'campaigns' && state.campaign ? cn : null;
+      picked.hidden = !label; picked.textContent = label ? 'Showing: ' + label + '  ×' : '';
+    }
+    document.querySelectorAll('.seg button').forEach((b) => b.addEventListener('click', () => { state.level = b.dataset.level; if (state.level !== 'ads') state.adset = null; drawMeta(); }));
+    picked.addEventListener('click', () => { Object.assign(state, { level: 'campaigns', campaign: null, adset: null }); drawMeta(); });
+    const drill = (tr) => {
+      if (!tr || !tr.dataset.key) return;
+      if (state.level === 'campaigns') Object.assign(state, { level: 'adsets', campaign: tr.dataset.key, adset: null });
+      else if (state.level === 'adsets') { const s = M.adsets.find((r) => r.id === tr.dataset.key); Object.assign(state, { level: 'ads', adset: tr.dataset.key, campaign: s ? s.campaign_id : state.campaign }); }
+      drawMeta();
+    };
+    tm.addEventListener('click', (e) => drill(e.target.closest('tr.click')));
+    tm.addEventListener('keydown', (e) => { if (e.key === 'Enter') drill(e.target.closest('tr.click')); });
+    drawMeta();
+
+    // Weekly chart
+    const series = [['signups', 'Email sign-ups'], ['started', 'Health checks started'], ['completed', 'Health checks completed']];
+    $('#legend').replaceChildren(...series.map(([, n], i) => { const s = el('span'); const sw = el('i'); sw.style.background = C[i]; s.append(sw, n); return s; }));
+    const weeks = K.weekly.map((r) => ({ ...r, date: new Date(r.week + 'T00:00:00Z') }));
+    const asOfDay = new Date(D.as_of + 'T00:00:00Z');
+    function drawChart() {
+      const box = $('#chart'); const W = Math.max(280, box.clientWidth), H = 280;
+      box.replaceChildren(); const tip = el('div', 'tip'); tip.hidden = true; box.appendChild(tip);
+      const svg = d3.select(box).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`);
+      const y = d3.scaleLinear([0, d3.max(weeks, (r) => Math.max(r.signups, r.started, r.completed)) || 1], [H - 26, 10]).nice();
+      const yt = y.ticks(4);
+      const probe = svg.append('text').attr('font-size', 11).text(d3.format(',')(d3.max(yt))); const left = probe.node().getComputedTextLength() + 12; probe.remove();
+      const x = d3.scaleUtc(d3.extent(weeks, (r) => r.date), [left, W - 10]);
+      svg.append('g').selectAll('line').data(yt).join('line').attr('x1', left).attr('x2', W - 10).attr('y1', y).attr('y2', y).attr('stroke', '#ECEBE2');
+      svg.append('g').selectAll('text').data(yt).join('text').attr('x', left - 8).attr('y', (v) => y(v) + 4).attr('text-anchor', 'end').attr('font-size', 11).attr('fill', '#5B5F6B').text(d3.format(','));
+      const ax = svg.append('g').attr('transform', `translate(0,${H - 26})`).call(d3.axisBottom(x).ticks(Math.max(2, Math.floor(W / 110))).tickFormat(d3.utcFormat('%-d %b')).tickSizeOuter(0));
+      ax.attr('font-size', null).attr('font-family', null); ax.selectAll('line, .domain').attr('stroke', '#C9C8BC'); ax.selectAll('text').attr('fill', '#5B5F6B').attr('font-size', 11);
+      const last = weeks[weeks.length - 1]; const partial = last && asOfDay < new Date(+last.date + 7 * 864e5 - 864e5);
+      const done = partial ? weeks.slice(0, -1) : weeks;
+      series.forEach(([k], i) => {
+        const line = d3.line((r) => x(r.date), (r) => y(r[k]));
+        svg.append('path').datum(done).attr('fill', 'none').attr('stroke', C[i]).attr('stroke-width', 2).attr('stroke-linecap', 'round').attr('stroke-linejoin', 'round').attr('d', line);
+        if (partial && weeks.length > 1) svg.append('path').datum(weeks.slice(-2)).attr('fill', 'none').attr('stroke', C[i]).attr('stroke-width', 2).attr('stroke-dasharray', '4 4').attr('d', line);
+      });
+      const rule = svg.append('line').attr('y1', 10).attr('y2', H - 26).attr('stroke', '#C9C8BC').attr('opacity', 0);
+      const dots = series.map((s, i) => svg.append('circle').attr('r', 3.5).attr('fill', C[i]).attr('opacity', 0));
+      svg.append('rect').attr('x', left).attr('y', 0).attr('width', W - left - 10).attr('height', H).attr('fill', 'transparent')
+        .on('mousemove', (ev) => {
+          const [mx] = d3.pointer(ev); const t = x.invert(mx); const r = weeks[d3.minIndex(weeks, (q) => Math.abs(q.date - t))]; const px = x(r.date);
+          rule.attr('x1', px).attr('x2', px).attr('opacity', 1); dots.forEach((c, i) => c.attr('cx', px).attr('cy', y(r[series[i][0]])).attr('opacity', 1));
+          tip.replaceChildren(el('div', 'd', 'Week of ' + d3.utcFormat('%-d %b %Y')(r.date) + (partial && r === last ? ' (week to date)' : '')));
+          series.forEach(([k, n], i) => { const l = el('div'); const sw = el('i'); sw.style.background = C[i]; l.append(sw, n + ': ' + d3.format(',')(r[k])); tip.appendChild(l); });
+          tip.hidden = false; const bw = box.clientWidth; const sx = px * bw / W; tip.style.left = Math.min(Math.max(0, sx + 12), bw - tip.offsetWidth) + 'px'; tip.style.top = '8px';
+        })
+        .on('mouseleave', () => { tip.hidden = true; rule.attr('opacity', 0); dots.forEach((c) => c.attr('opacity', 0)); });
+    }
+    drawChart();
+    let rt; window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(drawChart, 150); });
+
+    const foot = $('#foot'); foot.replaceChildren(el('p', null, 'Sources: ' + Object.values(D.sources).join(' · ')), el('p', null, 'Refreshed weekly on Mondays. Spend per completed check is total paid spend ÷ completed checks and does not attribute checks to ads.'));
+  }
+
+  fetch('data.json', { cache: 'no-store' }).then((r) => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); }).then(render)
+    .catch((e) => { document.getElementById('app').replaceChildren(el('div', 'err', 'The data file could not be loaded (' + e.message + '). Try refreshing the page.')); });
+})();
+</script>
+</body>
+</html>
