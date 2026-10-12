@@ -48,6 +48,10 @@ th { position: sticky; top: 0; background: var(--panel); text-align: right; font
 td { text-align: right; padding: 8px 10px; border-bottom: 1px solid var(--cream-2); white-space: nowrap; }
 th:first-child, td:first-child { text-align: left; white-space: normal; min-width: 14rem; }
 th.l { text-align: left; }
+th button.sort { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; white-space: nowrap; display: inline-flex; align-items: center; gap: 4px; }
+th button.sort:hover, th button.sort.on { color: var(--ink); }
+th button.sort .arr { font-size: 9px; opacity: .45; }
+th button.sort.on .arr { opacity: 1; color: var(--purple); }
 td.sub { color: var(--ink-2); text-align: left; white-space: normal; min-width: 10rem; }
 td .bar { display: inline-block; height: 6px; border-radius: 3px; background: var(--purple); opacity: .55; margin-right: 8px; vertical-align: middle; }
 tr.click { cursor: pointer; }
@@ -101,7 +105,7 @@ footer p { margin: 0 0 4px; }
     </div>
     <div class="card" id="meta">
       <h3>Meta performance</h3>
-      <div class="note">Highest spend first. Click a campaign to see its ad sets, or an ad set to see its ads.</div>
+      <div class="note">Click any column heading to sort (click again to reverse). Click a campaign to see its ad sets, or an ad set to see its ads.</div>
       <div class="ctrl">
         <div class="seg" role="tablist" aria-label="Meta level">
           <button type="button" data-level="campaigns" role="tab">Campaigns</button>
@@ -164,15 +168,21 @@ footer p { margin: 0 0 4px; }
 
   function fill(table, rows, cols, opts = {}) {
     const tb = table.querySelector('tbody');
-    const sk = opts.sort; if (sk) rows = rows.slice().sort((a, b) => (b[sk] || 0) - (a[sk] || 0));
-    const max = sk ? (d3.max(rows, (r) => r[sk]) || 1) : 1;
+    const sk = opts.sort, dir = opts.dir === 'asc' ? 1 : -1;
+    if (sk) rows = rows.slice().sort((a, b) => {
+      const x = a[sk], y = b[sk];
+      if (x == null || x === '') return (y == null || y === '') ? 0 : 1; // blanks always last
+      if (y == null || y === '') return -1;
+      return (typeof x === 'number' && typeof y === 'number' ? x - y : String(x).localeCompare(String(y), 'en', { sensitivity: 'base' })) * dir;
+    });
+    const bk = opts.bar || sk; const max = bk ? (d3.max(rows, (r) => r[bk]) || 1) : 1;
     tb.replaceChildren(...rows.map((r) => {
       const tr = el('tr'); if (opts.key) tr.dataset.key = r[opts.key];
       if (opts.click) { tr.className = 'click'; tr.tabIndex = 0; }
       cols.forEach(([k, f, cls], i) => {
         const td = el('td', cls || '');
         if (k === 'status') { const v = String(r[k] || ''); td.appendChild(el('span', 'pill' + (/^(active|live)$/i.test(v) ? ' ok' : /error|not approved|disapproved/i.test(v) ? ' bad' : ''), v)); }
-        else { if (k === sk && i > 0) { const b = el('span', 'bar'); b.style.width = Math.max(2, 44 * (r[k] || 0) / max) + 'px'; td.appendChild(b); } td.appendChild(document.createTextNode(f(r[k]))); }
+        else { if (k === bk && i > 0) { const b = el('span', 'bar'); b.style.width = Math.max(2, 44 * (r[k] || 0) / max) + 'px'; td.appendChild(b); } td.appendChild(document.createTextNode(f(r[k]))); }
         tr.appendChild(td);
       });
       return tr;
@@ -200,19 +210,31 @@ footer p { margin: 0 0 4px; }
     fill($('#t-camps'), K.campaigns, [['campaign', txt], ['sent', txt], ['recipients', int], ['open_rate', p1], ['click_rate', p1], ['conversions', int], ['unsubscribes', int]]);
 
     // Meta drill-down
-    const state = { level: 'campaigns', campaign: null, adset: null };
+    const state = { level: 'campaigns', campaign: null, adset: null, sort: 'spend', dir: 'desc' };
     const metrics = [['spend', money], ['impressions', int], ['link_clicks', int], ['ctr', p1], ['cpc', money], ['cpm', money], ['results', int], ['result_type', txt, 'sub'], ['cost_per_result', money]];
     const heads = { campaigns: ['Campaign', 'Status'], adsets: ['Ad set', 'Campaign', 'Status'], ads: ['Ad', 'Ad set', 'Status'] };
     const mhead = ['Spend', 'Impr.', 'Link clicks', 'CTR', 'CPC', 'CPM', 'Results', 'Result type', 'Cost / result'];
     const tm = $('#t-meta'); const picked = $('#picked');
     function drawMeta() {
       document.querySelectorAll('.seg button').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.level === state.level)));
-      const thr = el('tr'); [...heads[state.level], ...mhead].forEach((h, i) => thr.appendChild(el('th', (h === 'Result type' || (i === 1 && state.level !== 'campaigns')) ? 'l' : null, h))); tm.querySelector('thead').replaceChildren(thr);
       let rows = M[state.level], lead;
       if (state.level === 'campaigns') lead = [['name', txt], ['status', txt]];
       if (state.level === 'adsets') { lead = [['name', txt], ['campaign_name', txt, 'sub'], ['status', txt]]; if (state.campaign) rows = rows.filter((r) => r.campaign_id === state.campaign); }
       if (state.level === 'ads') { lead = [['name', txt], ['adset_name', txt, 'sub'], ['status', txt]]; if (state.adset) rows = rows.filter((r) => r.adset_id === state.adset); else if (state.campaign) rows = rows.filter((r) => r.campaign_id === state.campaign); }
-      fill(tm, rows, [...lead, ...metrics], { sort: 'spend', key: 'id', click: state.level !== 'ads' });
+      const cols = [...lead, ...metrics], names = [...heads[state.level], ...mhead];
+      if (!cols.some(([k]) => k === state.sort)) Object.assign(state, { sort: 'spend', dir: 'desc' });
+      const thr = el('tr');
+      cols.forEach(([k, , cls], i) => {
+        const th = el('th', cls === 'sub' || (i === 0) ? 'l' : null);
+        const on = state.sort === k;
+        th.setAttribute('aria-sort', on ? (state.dir === 'asc' ? 'ascending' : 'descending') : 'none');
+        const b = el('button', 'sort' + (on ? ' on' : ''), names[i]); b.type = 'button'; b.dataset.key = k;
+        b.appendChild(el('span', 'arr', on ? (state.dir === 'asc' ? '▲' : '▼') : '↕'));
+        b.title = 'Sort by ' + names[i];
+        th.appendChild(b); thr.appendChild(th);
+      });
+      tm.querySelector('thead').replaceChildren(thr);
+      fill(tm, rows, cols, { sort: state.sort, dir: state.dir, bar: 'spend', key: 'id', click: state.level !== 'ads' });
       const cn = (M.campaigns.find((r) => r.id === state.campaign) || {}).name, sn = (M.adsets.find((r) => r.id === state.adset) || {}).name;
       const label = state.level === 'ads' && state.adset ? sn : state.level !== 'campaigns' && state.campaign ? cn : null;
       picked.hidden = !label; picked.textContent = label ? 'Showing: ' + label + '  ×' : '';
@@ -225,7 +247,16 @@ footer p { margin: 0 0 4px; }
       else if (state.level === 'adsets') { const s = M.adsets.find((r) => r.id === tr.dataset.key); Object.assign(state, { level: 'ads', adset: tr.dataset.key, campaign: s ? s.campaign_id : state.campaign }); }
       drawMeta();
     };
-    tm.addEventListener('click', (e) => drill(e.target.closest('tr.click')));
+    tm.addEventListener('click', (e) => {
+      const s = e.target.closest('button.sort');
+      if (s) {
+        const k = s.dataset.key;
+        if (state.sort === k) state.dir = state.dir === 'asc' ? 'desc' : 'asc';
+        else { const textCol = ['name', 'status', 'campaign_name', 'adset_name', 'result_type'].includes(k); Object.assign(state, { sort: k, dir: textCol ? 'asc' : 'desc' }); }
+        drawMeta(); return;
+      }
+      drill(e.target.closest('tr.click'));
+    });
     tm.addEventListener('keydown', (e) => { if (e.key === 'Enter') drill(e.target.closest('tr.click')); });
     drawMeta();
 
