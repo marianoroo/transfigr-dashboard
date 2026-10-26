@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* Layout: one column of cards on Transfigr's cream ground; summary first, detail below. */
+/* Layout: range bar, then summary KPIs for the chosen period, then detail sections. */
 :root {
   --cream: #FBFCF5; --cream-2: #EDEDE3; --ink: #14181F; --ink-2: #5B5F6B; --line: #E2E1D6;
   --purple: #7363B2; --purple-soft: #EAE7F6; --mint: #E0FAF7; --teal: #2F9C8F; --amber: #C98A1B;
@@ -20,61 +20,94 @@
 * { box-sizing: border-box; }
 html, body { margin: 0; }
 body { background: var(--cream); color: var(--ink); font-family: var(--font); font-size: 14px; line-height: 1.45; -webkit-font-smoothing: antialiased; }
-.wrap { max-width: 1180px; margin-inline: auto; padding: 28px 20px 64px; display: flex; flex-direction: column; gap: 28px; }
+.wrap { max-width: 1180px; margin-inline: auto; padding: 28px 20px 64px; display: flex; flex-direction: column; gap: 24px; }
 header.top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 12px 24px; }
 .brand { font-weight: 700; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--purple); }
 h1 { font-size: clamp(26px, 4vw, 36px); font-weight: 600; margin: 4px 0 6px; letter-spacing: -.01em; text-wrap: balance; }
 .take { margin: 0; color: var(--ink-2); max-width: 70ch; }
 .take b { color: var(--ink); font-weight: 600; }
 .stamp { font-size: 12px; color: var(--ink-2); background: var(--panel); border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; white-space: nowrap; }
-.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 14px; }
-.kpi { background: var(--panel); border: 1px solid var(--line); border-radius: var(--r); padding: 18px 20px; }
+.stamp.stale { color: var(--bad); border-color: #EBC3BE; background: #FBEDEB; }
+
+/* Range bar */
+.range { position: sticky; top: 0; z-index: 5; background: color-mix(in srgb, var(--cream) 92%, transparent); backdrop-filter: blur(6px); margin: 0 -20px; padding: 10px 20px; border-bottom: 1px solid var(--line); display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
+.range .lbl { font-size: 12px; color: var(--ink-2); }
+.range .period { font-size: 12.5px; color: var(--ink); }
+.range .period span { color: var(--ink-2); }
+.custom { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; color: var(--ink-2); }
+.custom[hidden] { display: none; }
+select { font: inherit; font-size: 12.5px; color: var(--ink); background: var(--panel); border: 1px solid var(--line); border-radius: 999px; padding: 5px 10px; }
+label.cmp { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; color: var(--ink-2); cursor: pointer; }
+label.cmp input { accent-color: var(--purple); margin: 0; }
+
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr)); gap: 14px; }
+.kpi { background: var(--panel); border: 1px solid var(--line); border-radius: var(--r); padding: 16px 18px; }
 .kpi:first-child { background: var(--purple); border-color: var(--purple); color: var(--cream); }
-.kpi:first-child .lbl, .kpi:first-child .sub { color: var(--purple-soft); }
+.kpi:first-child .lbl, .kpi:first-child .sub, .kpi:first-child .prev { color: var(--purple-soft); }
 .kpi .lbl { font-size: 12px; color: var(--ink-2); }
-.kpi .val { font-size: 30px; font-weight: 600; margin-top: 6px; font-variant-numeric: tabular-nums; letter-spacing: -.01em; }
-.kpi .sub { font-size: 12px; color: var(--ink-2); margin-top: 4px; }
+.kpi .val { font-size: 28px; font-weight: 600; margin-top: 6px; font-variant-numeric: tabular-nums; letter-spacing: -.01em; }
+.kpi .sub { font-size: 12px; color: var(--ink-2); margin-top: 2px; }
+.kpi .cmp { margin-top: 8px; font-size: 12px; display: flex; flex-wrap: wrap; gap: 4px 8px; align-items: baseline; }
+.kpi .prev { color: var(--ink-2); }
+.d { display: inline-block; font-size: 11.5px; font-weight: 500; padding: 1px 7px; border-radius: 999px; background: var(--cream-2); color: var(--ink-2); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.d.up { background: var(--mint); color: var(--ok); }
+.d.down { background: #F7E3E0; color: var(--bad); }
+.kpi:first-child .d { background: rgba(255,255,255,.18); color: var(--cream); }
+
 section > h2 { font-size: 18px; font-weight: 600; margin: 0 0 4px; }
 section > p.lead { margin: 0 0 14px; font-size: 13px; color: var(--ink-2); max-width: 80ch; }
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 14px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); gap: 14px; }
 .card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--r); padding: 18px 20px; min-width: 0; }
 .card + .card { margin-top: 14px; }
 .grid .card + .card { margin-top: 0; }
 .card h3 { font-size: 15px; font-weight: 600; margin: 0; }
 .card .note { font-size: 12px; color: var(--ink-2); margin: 4px 0 14px; }
-.scroll { overflow: auto; max-height: 30rem; }
+.scroll { overflow: auto; max-height: 32rem; }
 table { width: 100%; border-collapse: collapse; font-size: 12.5px; font-variant-numeric: tabular-nums; }
 th { position: sticky; top: 0; background: var(--panel); text-align: right; font-weight: 500; color: var(--ink-2); padding: 8px 10px; border-bottom: 1px solid var(--line); white-space: nowrap; }
 td { text-align: right; padding: 8px 10px; border-bottom: 1px solid var(--cream-2); white-space: nowrap; }
-th:first-child, td:first-child { text-align: left; white-space: normal; min-width: 14rem; }
+th:first-child, td:first-child { text-align: left; white-space: normal; min-width: 13rem; }
 th.l { text-align: left; }
 th button.sort { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; white-space: nowrap; display: inline-flex; align-items: center; gap: 4px; }
 th button.sort:hover, th button.sort.on { color: var(--ink); }
 th button.sort .arr { font-size: 9px; opacity: .45; }
 th button.sort.on .arr { opacity: 1; color: var(--purple); }
-td.sub { color: var(--ink-2); text-align: left; white-space: normal; min-width: 10rem; }
+td.sub { color: var(--ink-2); text-align: left; white-space: normal; min-width: 9rem; }
 td .bar { display: inline-block; height: 6px; border-radius: 3px; background: var(--purple); opacity: .55; margin-right: 8px; vertical-align: middle; }
 tr.click { cursor: pointer; }
 tr.click:hover td, tr.click:focus td { background: var(--mint); }
 tr.click:focus { outline: none; }
+tr.total td { font-weight: 600; border-top: 1px solid var(--line); border-bottom: 0; }
 .pill { display: inline-block; font-size: 11px; padding: 1px 8px; border-radius: 999px; background: var(--cream-2); color: var(--ink-2); text-transform: capitalize; }
 .pill.ok { background: var(--mint); color: var(--ok); }
 .pill.bad { background: #F7E3E0; color: var(--bad); }
-.ctrl { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 12px; }
-.seg { display: inline-flex; background: var(--cream-2); border-radius: 999px; padding: 3px; }
-.seg button { font: inherit; font-size: 12.5px; border: 0; background: transparent; color: var(--ink-2); padding: 6px 14px; border-radius: 999px; cursor: pointer; }
+.ctrl { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin-bottom: 12px; }
+.seg { display: inline-flex; flex-wrap: wrap; background: var(--cream-2); border-radius: 999px; padding: 3px; }
+.seg button { font: inherit; font-size: 12.5px; border: 0; background: transparent; color: var(--ink-2); padding: 6px 13px; border-radius: 999px; cursor: pointer; }
 .seg button[aria-selected=true] { background: var(--purple); color: var(--cream); font-weight: 500; }
 .chip { font: inherit; font-size: 12px; border: 1px solid var(--purple); color: var(--purple); background: var(--purple-soft); border-radius: 999px; padding: 4px 12px; cursor: pointer; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-button:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+button:focus-visible, select:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
 .legend { display: flex; flex-wrap: wrap; gap: 16px; font-size: 12px; color: var(--ink-2); margin-bottom: 8px; }
 .legend i { display: inline-block; width: 12px; height: 3px; border-radius: 2px; margin-right: 6px; vertical-align: middle; }
+.legend i.box { height: 10px; width: 12px; border-radius: 2px; }
 .chart { position: relative; min-height: 280px; }
 .tip { position: absolute; pointer-events: none; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; box-shadow: 0 6px 20px rgba(20,24,31,.12); padding: 8px 10px; font-size: 12px; white-space: nowrap; }
-.tip .d { color: var(--ink-2); margin-bottom: 2px; }
+.tip .dd { color: var(--ink-2); margin-bottom: 2px; }
 .tip i { display: inline-block; width: 8px; height: 8px; border-radius: 2px; margin-right: 6px; }
+.empty { color: var(--ink-2); font-size: 12.5px; padding: 14px 0; }
 footer { font-size: 12px; color: var(--ink-2); border-top: 1px solid var(--line); padding-top: 16px; }
 footer p { margin: 0 0 4px; }
 .err { padding: 40px; text-align: center; color: var(--bad); }
+@media (max-width: 640px) {
+  .wrap { padding: 20px 16px 48px; }
+  .range { margin: 0 -16px; padding: 10px 16px; }
+  th:first-child, td:first-child { min-width: 9.5rem; }
+  .card { padding: 16px 14px; }
+  .kpi .val { font-size: 22px; }
+  .kpis { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .kpi { padding: 14px; }
+  .kpi:first-child { grid-column: 1 / -1; }
+}
 </style>
 </head>
 <body>
@@ -88,66 +121,85 @@ footer p { margin: 0 0 4px; }
     <div class="stamp" id="stamp">—</div>
   </header>
 
-  <div class="kpis">
-    <div class="kpi"><div class="lbl">Paid media spend · since launch</div><div class="val" id="k-spend">—</div><div class="sub">Meta + LinkedIn</div></div>
-    <div class="kpi"><div class="lbl">Email sign-ups · since launch</div><div class="val" id="k-signups">—</div><div class="sub">Subscribed to email marketing</div></div>
-    <div class="kpi"><div class="lbl">Health checks completed</div><div class="val" id="k-completed">—</div><div class="sub">Unique profiles per week, summed</div></div>
-    <div class="kpi"><div class="lbl">Paid spend per completed check</div><div class="val" id="k-cpc">—</div><div class="sub">Blended ratio, not ad-attributed</div></div>
+  <div class="range" id="range">
+    <div class="seg" role="tablist" aria-label="Time range" id="presets">
+      <button type="button" data-p="1w" role="tab">Last week</button>
+      <button type="button" data-p="4w" role="tab">Last 4 weeks</button>
+      <button type="button" data-p="12w" role="tab">Last 12 weeks</button>
+      <button type="button" data-p="all" role="tab">Since launch</button>
+      <button type="button" data-p="custom" role="tab">Custom</button>
+    </div>
+    <div class="custom" id="custom" hidden>
+      <label for="w-from">From week of</label><select id="w-from"></select>
+      <label for="w-to">to</label><select id="w-to"></select>
+    </div>
+    <label class="cmp"><input type="checkbox" id="cmp" checked> Compare with previous period</label>
+    <div class="period" id="period"></div>
   </div>
 
-  <section id="paid">
-    <h2>Paid media</h2>
-    <p class="lead">Meta from March 2026, LinkedIn from 29 Sep 2026. All figures in AUD, lifetime to the update date.</p>
+  <div class="kpis">
+    <div class="kpi" data-k="spend"><div class="lbl">Meta ad spend</div><div class="val">—</div><div class="sub"></div><div class="cmp"></div></div>
+    <div class="kpi" data-k="signups"><div class="lbl">Email sign-ups</div><div class="val">—</div><div class="sub">Subscribed to email marketing</div><div class="cmp"></div></div>
+    <div class="kpi" data-k="started"><div class="lbl">Health checks started</div><div class="val">—</div><div class="sub"></div><div class="cmp"></div></div>
+    <div class="kpi" data-k="completed"><div class="lbl">Health checks completed</div><div class="val">—</div><div class="sub"></div><div class="cmp"></div></div>
+    <div class="kpi" data-k="cpcc"><div class="lbl">Spend per completed check</div><div class="val">—</div><div class="sub">Blended ratio, not ad-attributed</div><div class="cmp"></div></div>
+  </div>
+
+  <section id="trend">
     <div class="card">
-      <h3>Channel comparison</h3>
-      <div class="note">CTR and CPC use all clicks.</div>
-      <div class="scroll"><table id="t-channels"><thead><tr><th>Channel</th><th>Spend</th><th>Impressions</th><th>Clicks</th><th>CTR</th><th>CPC</th><th>CPM</th><th>Leads</th></tr></thead><tbody></tbody></table></div>
+      <h3>Weekly sign-ups and health checks</h3>
+      <div class="note">Unique profiles per week (Monday start, Melbourne time). The selected period is shaded; the previous period has a lighter shade. A dashed final segment is the current week to date.</div>
+      <div class="legend" id="legend"></div>
+      <div class="chart" id="chart"></div>
     </div>
+  </section>
+
+  <section id="paid">
+    <h2>Meta ads</h2>
+    <p class="lead">Ad account since March 2026, in AUD. Campaigns and ad sets follow the selected period; changes compare it with the previous period of the same length.</p>
     <div class="card" id="meta">
       <h3>Meta performance</h3>
-      <div class="note">Click any column heading to sort (click again to reverse). Click a campaign to see its ad sets, or an ad set to see its ads.</div>
+      <div class="note" id="meta-note"></div>
       <div class="ctrl">
-        <div class="seg" role="tablist" aria-label="Meta level">
+        <div class="seg" role="tablist" aria-label="Meta level" id="levels">
           <button type="button" data-level="campaigns" role="tab">Campaigns</button>
           <button type="button" data-level="adsets" role="tab">Ad sets</button>
           <button type="button" data-level="ads" role="tab">Ads</button>
         </div>
         <button type="button" class="chip" id="picked" hidden></button>
+        <label class="cmp"><input type="checkbox" id="hide0" checked> Hide rows with no spend in either period</label>
       </div>
       <div class="scroll"><table id="t-meta"><thead></thead><tbody></tbody></table></div>
-    </div>
-    <div class="card">
-      <h3>LinkedIn ad sets</h3>
-      <div class="note">Financial Training Australia account.</div>
-      <div class="scroll"><table id="t-li"><thead><tr><th>Ad set</th><th>Status</th><th>Spend</th><th>Impr.</th><th>Clicks</th><th>CTR</th><th>CPC</th><th>Leads</th><th>Cost / lead</th></tr></thead><tbody></tbody></table></div>
     </div>
   </section>
 
   <section id="klaviyo">
-    <h2>Email &amp; health checks</h2>
+    <h2>Email</h2>
     <p class="lead">From Klaviyo. Health check events started arriving in late August 2026 once the app integration went live.</p>
-    <div class="card">
-      <h3>Weekly sign-ups and health checks</h3>
-      <div class="note">Unique profiles per week (Monday start, Melbourne time), up to the update date. A dashed final segment is the current week to date.</div>
-      <div class="legend" id="legend"></div>
-      <div class="chart" id="chart"></div>
-    </div>
-    <div class="grid" style="margin-top:14px">
+    <div>
       <div class="card">
         <h3>Flows</h3>
-        <div class="note">Last 365 days. Conversions = health checks completed after an email.</div>
-        <div class="scroll"><table id="t-flows"><thead><tr><th>Flow</th><th>Recipients</th><th>Open rate</th><th>Click rate</th><th>Conv.</th><th>Unsubs</th></tr></thead><tbody></tbody></table></div>
+        <div class="note">Unique people per week who received, opened or clicked a flow email, summed over the period. Conversions = health checks completed after a flow email. Counted by event date, so totals can differ slightly from Klaviyo's flow report.</div>
+        <div class="scroll"><table id="t-flows"><thead><tr><th>Flow</th><th>Received</th><th>Open rate</th><th>Click rate</th><th>Conv.</th><th>Received vs prev.</th></tr></thead><tbody></tbody></table></div>
       </div>
       <div class="card">
         <h3>Sign-up forms</h3>
-        <div class="note">Last 365 days. Submit rate = submits ÷ unique viewers.</div>
-        <div class="scroll"><table id="t-forms"><thead><tr><th>Form</th><th>Status</th><th>Viewers</th><th>Submits</th><th>Submit rate</th></tr></thead><tbody></tbody></table></div>
+        <div class="note">Viewers = unique viewers per week, summed. Submit rate = submits ÷ viewers.</div>
+        <div class="scroll"><table id="t-forms"><thead><tr><th>Form</th><th>Status</th><th>Viewers</th><th>Submits</th><th>Submit rate</th><th>Submits vs prev.</th></tr></thead><tbody></tbody></table></div>
       </div>
     </div>
     <div class="card" style="margin-top:14px">
       <h3>Email campaigns</h3>
-      <div class="note">Last 365 days.</div>
+      <div class="note">Campaigns sent in the selected period, with lifetime results per send.</div>
       <div class="scroll"><table id="t-camps"><thead><tr><th>Campaign</th><th>Sent</th><th>Recipients</th><th>Open rate</th><th>Click rate</th><th>Conv.</th><th>Unsubs</th></tr></thead><tbody></tbody></table></div>
+    </div>
+  </section>
+
+  <section id="li">
+    <h2>LinkedIn · Financial Training Australia</h2>
+    <p class="lead">A separate business, shown for reference only. Not included in the Transfigr figures above and not filtered by the date range (lifetime since 29 Sep 2026).</p>
+    <div class="card">
+      <div class="scroll"><table id="t-li"><thead><tr><th>Ad set</th><th>Status</th><th>Spend</th><th>Impr.</th><th>Clicks</th><th>CTR</th><th>CPC</th><th>Leads</th><th>Cost / lead</th></tr></thead><tbody></tbody></table></div>
     </div>
   </section>
 
@@ -159,12 +211,31 @@ footer p { margin: 0 0 4px; }
 (function () {
   const C = ['#7363B2', '#2F9C8F', '#C98A1B'];
   const money = (v) => v == null ? '—' : 'A$' + d3.format(',.2f')(v);
+  const money0 = (v) => v == null ? '—' : 'A$' + d3.format(',.0f')(v);
   const int = (v) => v == null ? '—' : d3.format(',')(v);
   const p1 = (v) => v == null ? '—' : d3.format('.1%')(v);
   const txt = (v) => v ?? '—';
   const $ = (s) => document.querySelector(s);
   const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
   const sum = (rows, k) => rows.reduce((s, r) => s + (Number(r[k]) || 0), 0);
+  const DAY = 864e5;
+  const iso = (d) => d.toISOString().slice(0, 10);
+  const fmtD = d3.utcFormat('%-d %b'), fmtDY = d3.utcFormat('%-d %b %Y');
+  // Meta returns some result types in snake_case ("health_check_started"); tidy those, leave proper labels alone.
+  const normType = (t) => !t ? null : (/_/.test(t) || t === t.toLowerCase()) ? t.replace(/_/g, ' ').replace(/\s+/g, ' ').trim().replace(/\b\w/g, (c) => c.toUpperCase()) : t;
+
+  // Delta pill. good: +1 if an increase is good, -1 if a decrease is good, 0 neutral.
+  function delta(cur, prev, good = 1) {
+    const s = el('span', 'd');
+    if (prev == null || cur == null) { s.textContent = '—'; return s; }
+    if (prev === 0 && cur === 0) { s.textContent = 'no change'; return s; }
+    if (prev === 0) { s.textContent = 'new'; if (good) s.classList.add(good > 0 ? 'up' : 'down'); return s; }
+    const ch = (cur - prev) / Math.abs(prev);
+    const ratio = cur / prev;
+    s.textContent = ratio >= 10 ? '▲ ' + d3.format('.0f')(ratio) + '×' : (ch > 0 ? '▲ ' : ch < 0 ? '▼ ' : '') + d3.format('.0%')(Math.abs(ch));
+    if (Math.abs(ch) >= 0.005 && good) s.classList.add((ch > 0) === (good > 0) ? 'up' : 'down');
+    return s;
+  }
 
   function fill(table, rows, cols, opts = {}) {
     const tb = table.querySelector('tbody');
@@ -176,134 +247,331 @@ footer p { margin: 0 0 4px; }
       return (typeof x === 'number' && typeof y === 'number' ? x - y : String(x).localeCompare(String(y), 'en', { sensitivity: 'base' })) * dir;
     });
     const bk = opts.bar || sk; const max = bk ? (d3.max(rows, (r) => r[bk]) || 1) : 1;
-    tb.replaceChildren(...rows.map((r) => {
+    const trs = rows.map((r) => {
       const tr = el('tr'); if (opts.key) tr.dataset.key = r[opts.key];
       if (opts.click) { tr.className = 'click'; tr.tabIndex = 0; }
       cols.forEach(([k, f, cls], i) => {
         const td = el('td', cls || '');
         if (k === 'status') { const v = String(r[k] || ''); td.appendChild(el('span', 'pill' + (/^(active|live)$/i.test(v) ? ' ok' : /error|not approved|disapproved/i.test(v) ? ' bad' : ''), v)); }
+        else if (typeof f === 'function' && f.length === 2) td.appendChild(f(r[k], r));
         else { if (k === bk && i > 0) { const b = el('span', 'bar'); b.style.width = Math.max(2, 44 * (r[k] || 0) / max) + 'px'; td.appendChild(b); } td.appendChild(document.createTextNode(f(r[k]))); }
         tr.appendChild(td);
       });
       return tr;
-    }));
+    });
+    if (opts.total) { const tr = el('tr', 'total'); cols.forEach(([k, f], i) => { const td = el('td'); const v = i === 0 ? opts.total.label : opts.total[k]; td.textContent = v === undefined ? '' : (i === 0 ? v : (typeof f === 'function' && f.length === 2 ? '' : f(v))); tr.appendChild(td); }); trs.push(tr); }
+    if (!rows.length) { const tr = el('tr'); const td = el('td', 'empty', opts.empty || 'Nothing in this period.'); td.colSpan = cols.length; tr.appendChild(td); trs.splice(0, trs.length, tr); }
+    tb.replaceChildren(...trs);
   }
 
   function render(D) {
     const M = D.meta, L = D.linkedin, K = D.klaviyo;
-    const asOf = new Date(D.generated_at);
-    $('#stamp').textContent = 'Updated ' + asOf.toLocaleString('en-AU', { timeZone: 'Australia/Melbourne', day: 'numeric', month: 'short', year: 'numeric', hour: 'numeric', minute: '2-digit' });
+    const MW = (M.weekly) || { campaigns: [], adsets: [] };
+    const asOf = new Date(D.as_of + 'T00:00:00Z');
+    const gen = new Date(D.generated_at);
+    const stamp = $('#stamp');
+    stamp.textContent = 'Updated ' + gen.toLocaleString('en-AU', { timeZone: 'Australia/Melbourne', day: 'numeric', month: 'short', year: 'numeric', hour: 'numeric', minute: '2-digit' });
+    if ((Date.now() - gen) > 8 * DAY) { stamp.classList.add('stale'); stamp.textContent += ' · over a week old'; }
 
-    const ch = (name, rows, leads) => { const sp = sum(rows, 'spend'), im = sum(rows, 'impressions'), cl = sum(rows, 'clicks'); return { channel: name, spend: sp, impressions: im, clicks: cl, ctr: im ? cl / im : null, cpc: cl ? sp / cl : null, cpm: im ? sp / im * 1000 : null, leads }; };
-    const channels = [ch('Meta', M.campaigns, null), ch('LinkedIn', L, sum(L, 'leads'))];
-    const total = sum(channels, 'spend'), signups = sum(K.weekly, 'signups'), completed = sum(K.weekly, 'completed');
-    $('#k-spend').textContent = money(total);
-    $('#k-signups').textContent = int(signups);
-    $('#k-completed').textContent = int(completed);
-    $('#k-cpc').textContent = completed ? money(total / completed) : '—';
-    const take = $('#take'); take.replaceChildren('Meta has taken ', el('b', null, p1(total ? channels[0].spend / total : null)), ' of paid spend. Klaviyo has captured ', el('b', null, int(signups)), ' email sign-ups and ', el('b', null, int(completed)), ' completed Financial Health Checks.');
+    // Week axis: Mondays from the first Klaviyo week to the current week.
+    const weeks = K.weekly.map((r) => r.week);
+    const wIdx = new Map(weeks.map((w, i) => [w, i]));
+    const nW = weeks.length;
+    const curPartial = new Date(weeks[nW - 1] + 'T00:00:00Z').getTime() + 7 * DAY > asOf.getTime();
+    const lastFull = curPartial ? nW - 2 : nW - 1;
+    const firstData = Math.max(0, weeks.findIndex((w, i) => K.weekly[i].signups || MW.campaigns.some((r) => r.week === w)));
 
-    fill($('#t-channels'), channels, [['channel', txt], ['spend', money], ['impressions', int], ['clicks', int], ['ctr', p1], ['cpc', money], ['cpm', money], ['leads', int]], { sort: 'spend' });
-    fill($('#t-li'), L, [['ad_set', txt], ['status', txt], ['spend', money], ['impressions', int], ['clicks', int], ['ctr', p1], ['cpc', money], ['leads', int], ['cost_per_lead', money]], { sort: 'spend' });
-    fill($('#t-flows'), K.flows, [['flow', txt], ['recipients', int], ['open_rate', p1], ['click_rate', p1], ['conversions', int], ['unsubscribes', int]], { sort: 'recipients' });
-    fill($('#t-forms'), K.forms, [['form', txt], ['status', txt], ['viewers', int], ['submits', int], ['submit_rate', p1]], { sort: 'submits' });
-    fill($('#t-camps'), K.campaigns, [['campaign', txt], ['sent', txt], ['recipients', int], ['open_rate', p1], ['click_rate', p1], ['conversions', int], ['unsubscribes', int]]);
+    // Per-week arrays for headline series
+    const spendW = new Array(nW).fill(0), hcsW = new Array(nW).fill(0);
+    MW.campaigns.forEach((r) => { const i = wIdx.get(r.week); if (i != null) spendW[i] += r.spend; });
+    // Meta-attributed health checks started (pixel), from ad-set weekly results whose type is a health check start
+    const adsetType = new Map(M.adsets.map((a) => [a.id, normType(a.result_type)]));
+    MW.adsets.forEach((r) => { const i = wIdx.get(r.week); if (i != null && /health check started/i.test(adsetType.get(r.id) || '') && r.results) hcsW[i] += r.results; });
+    const rangeSum = (arr, [a, b]) => { let s = 0; for (let i = Math.max(0, a); i <= b; i++) s += arr[i] || 0; return s; };
+    const series = { signups: K.weekly.map((r) => r.signups), started: K.weekly.map((r) => r.started), completed: K.weekly.map((r) => r.completed) };
 
-    // Meta drill-down
-    const state = { level: 'campaigns', campaign: null, adset: null, sort: 'spend', dir: 'desc' };
-    const metrics = [['spend', money], ['impressions', int], ['link_clicks', int], ['ctr', p1], ['cpc', money], ['cpm', money], ['results', int], ['result_type', txt, 'sub'], ['cost_per_result', money]];
+    // ---------- Range state (kept in the URL hash so a link keeps the view) ----------
+    const st = { p: '4w', from: Math.max(0, lastFull - 3), to: lastFull, cmp: true, level: 'campaigns', campaign: null, adset: null, sort: 'spend', dir: 'desc', hide0: true };
+    try {
+      const h = new URLSearchParams(location.hash.slice(1));
+      if (h.get('p')) st.p = h.get('p');
+      if (st.p === 'custom' && wIdx.has(h.get('from')) && wIdx.has(h.get('to'))) { st.from = wIdx.get(h.get('from')); st.to = wIdx.get(h.get('to')); }
+      if (h.get('cmp') === '0') st.cmp = false;
+    } catch (e) { /* ignore a malformed hash */ }
+
+    function period() {
+      if (st.p === '1w') return [lastFull, lastFull];
+      if (st.p === '4w') return [lastFull - 3, lastFull];
+      if (st.p === '12w') return [lastFull - 11, lastFull];
+      if (st.p === 'all') return [firstData, nW - 1];
+      const a = Math.min(st.from, st.to), b = Math.max(st.from, st.to); return [a, b];
+    }
+    const prevOf = ([a, b]) => { const n = b - a + 1; return [a - n, a - 1]; };
+    const label = ([a, b]) => { const s = new Date(weeks[Math.max(0, a)] + 'T00:00:00Z'); let e = new Date(new Date(weeks[b] + 'T00:00:00Z').getTime() + 6 * DAY); if (e > asOf) e = new Date(asOf.getTime()); return fmtD(s) + ' – ' + fmtDY(e); };
+
+    // Custom selects
+    const sf = $('#w-from'), stt = $('#w-to');
+    const opts = weeks.map((w, i) => { const o = el('option', null, fmtDY(new Date(w + 'T00:00:00Z')) + (i === nW - 1 && curPartial ? ' (to date)' : '')); o.value = i; return o; });
+    sf.replaceChildren(...opts.map((o) => o.cloneNode(true))); stt.replaceChildren(...opts.map((o) => o.cloneNode(true)));
+
+    function writeHash() {
+      const h = new URLSearchParams({ p: st.p });
+      if (st.p === 'custom') { h.set('from', weeks[st.from]); h.set('to', weeks[st.to]); }
+      if (!st.cmp) h.set('cmp', '0');
+      try { history.replaceState(null, '', '#' + h.toString()); } catch (e) { /* preview frames may block this */ }
+    }
+
+    // ---------- Meta aggregation for a week range ----------
+    function metaRange(level, [a, b]) {
+      const rows = level === 'campaigns' ? MW.campaigns : MW.adsets;
+      const acc = new Map();
+      rows.forEach((r) => {
+        const i = wIdx.get(r.week); if (i == null || i < a || i > b) return;
+        const x = acc.get(r.id) || { spend: 0, impressions: 0, clicks: 0, link_clicks: 0, results: 0, hasRes: false };
+        x.spend += r.spend; x.impressions += r.impressions; x.clicks += r.clicks; x.link_clicks += r.link_clicks;
+        if (r.results != null) { x.results += r.results; x.hasRes = true; }
+        acc.set(r.id, x);
+      });
+      return acc;
+    }
+    // Campaigns whose own result type is "Mixed" take results from their ad sets when those share one type.
+    const childTypes = d3.group(M.adsets.filter((a) => a.spend > 0), (a) => a.campaign_id);
+    const campResType = new Map(M.campaigns.map((c) => {
+      let t = normType(c.result_type);
+      if (t === 'Mixed' || !t) { const ts = [...new Set((childTypes.get(c.id) || []).map((a) => normType(a.result_type)).filter(Boolean))]; if (ts.length === 1) t = ts[0] + '*'; }
+      return [c.id, t];
+    }));
+    function withRates(r) {
+      r.ctr = r.impressions ? r.clicks / r.impressions : null;
+      r.cpc = r.clicks ? r.spend / r.clicks : null;
+      r.cpm = r.impressions ? r.spend / r.impressions * 1000 : null;
+      r.cost_per_result = r.results ? r.spend / r.results : null;
+      return r;
+    }
+
+    // ---------- Draw everything for the current range ----------
+    const picked = $('#picked'); const tm = $('#t-meta');
+    function draw() {
+      const P = period(), Q = prevOf(P);
+      const hasPrev = st.cmp && st.p !== 'all' && Q[1] >= 0;
+      const prevPartial = hasPrev && Q[0] < firstData;
+      document.querySelectorAll('#presets button').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.p === st.p)));
+      $('#custom').hidden = st.p !== 'custom';
+      sf.value = P[0]; stt.value = P[1];
+      const per = $('#period'); per.replaceChildren(el('b', null, label(P)));
+      if (hasPrev) per.append(el('span', null, '  vs ' + label(Q) + (prevPartial ? ' (before tracking began)' : '')));
+      writeHash();
+
+      // KPIs
+      const v = (arr, R) => rangeSum(arr, R);
+      const cur = { spend: v(spendW, P), signups: v(series.signups, P), started: v(series.started, P), completed: v(series.completed, P), hcs: v(hcsW, P) };
+      const prv = hasPrev ? { spend: v(spendW, Q), signups: v(series.signups, Q), started: v(series.started, Q), completed: v(series.completed, Q), hcs: v(hcsW, Q) } : null;
+      cur.cpcc = cur.completed ? cur.spend / cur.completed : null; if (prv) prv.cpcc = prv.completed ? prv.spend / prv.completed : null;
+      const kp = {
+        spend: [money(cur.spend), cur.hcs + ' health check' + (cur.hcs === 1 ? '' : 's') + ' started from Meta ads', 0, money],
+        signups: [int(cur.signups), null, 1, int],
+        started: [int(cur.started), cur.signups ? p1(cur.started / cur.signups) + ' of sign-ups' : 'No sign-ups in period', 1, int],
+        completed: [int(cur.completed), cur.started ? p1(cur.completed / cur.started) + ' of checks started' : 'No checks started in period', 1, int],
+        cpcc: [cur.cpcc == null ? '—' : money(cur.cpcc), null, -1, money],
+      };
+      document.querySelectorAll('.kpi').forEach((k) => {
+        const key = k.dataset.k, [val, sub, good, f] = kp[key];
+        k.querySelector('.val').textContent = val;
+        if (sub != null) k.querySelector('.sub').textContent = sub;
+        const c = k.querySelector('.cmp');
+        if (prv) c.replaceChildren(delta(cur[key], prv[key], good), el('span', 'prev', 'prev. ' + (prv[key] == null ? '—' : f(prv[key])))); else c.replaceChildren();
+      });
+      const take = $('#take');
+      const parts = ['In this period Meta spent ', el('b', null, money0(cur.spend)), ', Klaviyo captured ', el('b', null, int(cur.signups)), ' email sign-ups and ', el('b', null, int(cur.completed)), ' completed Financial Health Checks'];
+      if (prv && prv.completed !== cur.completed) parts.push(' (', el('b', null, (cur.completed > prv.completed ? 'up from ' : 'down from ') + int(prv.completed)), ' the period before)');
+      parts.push('.'); take.replaceChildren(...parts);
+
+      drawMeta(P, hasPrev ? Q : null);
+      drawFlows(P, hasPrev ? Q : null);
+      drawForms(P, hasPrev ? Q : null);
+      drawCamps(P);
+      drawChart(P, hasPrev ? Q : null);
+    }
+
+    // Meta drill-down table
     const heads = { campaigns: ['Campaign', 'Status'], adsets: ['Ad set', 'Campaign', 'Status'], ads: ['Ad', 'Ad set', 'Status'] };
-    const mhead = ['Spend', 'Impr.', 'Link clicks', 'CTR', 'CPC', 'CPM', 'Results', 'Result type', 'Cost / result'];
-    const tm = $('#t-meta'); const picked = $('#picked');
-    function drawMeta() {
-      document.querySelectorAll('.seg button').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.level === state.level)));
-      let rows = M[state.level], lead;
-      if (state.level === 'campaigns') lead = [['name', txt], ['status', txt]];
-      if (state.level === 'adsets') { lead = [['name', txt], ['campaign_name', txt, 'sub'], ['status', txt]]; if (state.campaign) rows = rows.filter((r) => r.campaign_id === state.campaign); }
-      if (state.level === 'ads') { lead = [['name', txt], ['adset_name', txt, 'sub'], ['status', txt]]; if (state.adset) rows = rows.filter((r) => r.adset_id === state.adset); else if (state.campaign) rows = rows.filter((r) => r.campaign_id === state.campaign); }
-      const cols = [...lead, ...metrics], names = [...heads[state.level], ...mhead];
-      if (!cols.some(([k]) => k === state.sort)) Object.assign(state, { sort: 'spend', dir: 'desc' });
+    let lastP = null, lastQ = null;
+    function drawMeta(P, Q) {
+      lastP = P; lastQ = Q;
+      document.querySelectorAll('#levels button').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.level === st.level)));
+      const lifetimeOnly = st.level === 'ads';
+      $('#meta-note').textContent = lifetimeOnly
+        ? 'Ads show lifetime totals only: Meta’s weekly breakdown at ad level is incomplete, so it can’t be filtered by date. Switch to Campaigns or Ad sets for the selected period.'
+        : 'Click a heading to sort (again to reverse). Click a campaign to see its ad sets, or an ad set to see its ads. * Results summed from the ad sets, which all optimise for the same result.';
+      let base = M[st.level], lead;
+      if (st.level === 'campaigns') lead = [['name', txt], ['status', txt]];
+      if (st.level === 'adsets') { lead = [['name', txt], ['campaign_name', txt, 'sub'], ['status', txt]]; if (st.campaign) base = base.filter((r) => r.campaign_id === st.campaign); }
+      if (st.level === 'ads') { lead = [['name', txt], ['adset_name', txt, 'sub'], ['status', txt]]; if (st.adset) base = base.filter((r) => r.adset_id === st.adset); else if (st.campaign) base = base.filter((r) => r.campaign_id === st.campaign); }
+      let rows;
+      if (lifetimeOnly) rows = base.map((r) => ({ ...r, result_type: normType(r.result_type) }));
+      else {
+        const cur = metaRange(st.level, P), prv = Q ? metaRange(st.level, Q) : null;
+        let adsetRes = null, adsetResPrev = null;
+        if (st.level === 'campaigns') {
+          // roll ad-set results up for campaigns marked with *
+          const roll = (R) => { const m = new Map(); const a = metaRange('adsets', R); M.adsets.forEach((s) => { const x = a.get(s.id); if (x && x.hasRes) m.set(s.campaign_id, (m.get(s.campaign_id) || 0) + x.results); }); return m; };
+          adsetRes = roll(P); adsetResPrev = Q ? roll(Q) : null;
+        }
+        rows = base.map((r) => {
+          const x = cur.get(r.id) || { spend: 0, impressions: 0, clicks: 0, link_clicks: 0, results: 0, hasRes: false };
+          const y = prv ? (prv.get(r.id) || { spend: 0, results: 0, hasRes: false }) : null;
+          const t = st.level === 'campaigns' ? campResType.get(r.id) : normType(r.result_type);
+          const starred = t && t.endsWith('*');
+          const res = starred ? (adsetRes.get(r.id) || 0) : (t === 'Mixed' ? null : (x.hasRes ? x.results : (x.spend ? 0 : null)));
+          const resPrev = !y ? null : starred ? (adsetResPrev.get(r.id) || 0) : (t === 'Mixed' ? null : (y.hasRes ? y.results : 0));
+          return withRates({ ...r, spend: x.spend, impressions: x.impressions, clicks: x.clicks, link_clicks: x.link_clicks, results: res, result_type: t, prev_spend: y ? y.spend : null, prev_results: resPrev });
+        });
+        if (st.hide0) rows = rows.filter((r) => r.spend > 0 || (r.prev_spend || 0) > 0);
+      }
+      const dSpend = (v, r) => delta(r.spend, r.prev_spend, 0), dRes = (v, r) => r.results == null ? el('span', null, '—') : delta(r.results, r.prev_results, 1);
+      const showD = !lifetimeOnly && Q;
+      const metrics = [['spend', money], ...(showD ? [['d_spend', dSpend]] : []), ['impressions', int], ['link_clicks', int], ['ctr', p1], ['cpc', money], ['cpm', money], ['results', int], ...(showD ? [['d_results', dRes]] : []), ['result_type', txt, 'sub'], ['cost_per_result', money]];
+      const mhead = ['Spend', ...(showD ? ['vs prev.'] : []), 'Impr.', 'Link clicks', 'CTR', 'CPC', 'CPM', 'Results', ...(showD ? ['vs prev.'] : []), 'Result type', 'Cost / result'];
+      const cols = [...lead, ...metrics], names = [...heads[st.level], ...mhead];
+      if (!cols.some(([k]) => k === st.sort) || st.sort.startsWith('d_')) Object.assign(st, { sort: 'spend', dir: 'desc' });
       const thr = el('tr');
       cols.forEach(([k, , cls], i) => {
-        const th = el('th', cls === 'sub' || (i === 0) ? 'l' : null);
-        const on = state.sort === k;
-        th.setAttribute('aria-sort', on ? (state.dir === 'asc' ? 'ascending' : 'descending') : 'none');
+        const th = el('th', cls === 'sub' || i === 0 ? 'l' : null);
+        if (k.startsWith('d_')) { th.textContent = names[i]; thr.appendChild(th); return; }
+        const on = st.sort === k;
+        th.setAttribute('aria-sort', on ? (st.dir === 'asc' ? 'ascending' : 'descending') : 'none');
         const b = el('button', 'sort' + (on ? ' on' : ''), names[i]); b.type = 'button'; b.dataset.key = k;
-        b.appendChild(el('span', 'arr', on ? (state.dir === 'asc' ? '▲' : '▼') : '↕'));
-        b.title = 'Sort by ' + names[i];
+        b.appendChild(el('span', 'arr', on ? (st.dir === 'asc' ? '▲' : '▼') : '↕')); b.title = 'Sort by ' + names[i];
         th.appendChild(b); thr.appendChild(th);
       });
       tm.querySelector('thead').replaceChildren(thr);
-      fill(tm, rows, cols, { sort: state.sort, dir: state.dir, bar: 'spend', key: 'id', click: state.level !== 'ads' });
-      const cn = (M.campaigns.find((r) => r.id === state.campaign) || {}).name, sn = (M.adsets.find((r) => r.id === state.adset) || {}).name;
-      const label = state.level === 'ads' && state.adset ? sn : state.level !== 'campaigns' && state.campaign ? cn : null;
-      picked.hidden = !label; picked.textContent = label ? 'Showing: ' + label + '  ×' : '';
+      const tot = { label: 'Total', spend: sum(rows, 'spend'), impressions: sum(rows, 'impressions'), link_clicks: sum(rows, 'link_clicks') };
+      Object.assign(tot, { ctr: tot.impressions ? sum(rows, 'clicks') / tot.impressions : null, cpc: sum(rows, 'clicks') ? tot.spend / sum(rows, 'clicks') : null, cpm: tot.impressions ? tot.spend / tot.impressions * 1000 : null, results: undefined, result_type: undefined, cost_per_result: undefined });
+      fill(tm, rows, cols, { sort: st.sort, dir: st.dir, bar: 'spend', key: 'id', click: st.level !== 'ads', total: rows.length > 1 ? tot : null, empty: 'No Meta delivery in this period.' });
+      const cn = (M.campaigns.find((r) => r.id === st.campaign) || {}).name, sn = (M.adsets.find((r) => r.id === st.adset) || {}).name;
+      const lbl = st.level === 'ads' && st.adset ? sn : st.level !== 'campaigns' && st.campaign ? cn : null;
+      picked.hidden = !lbl; picked.textContent = lbl ? 'Showing: ' + lbl + '  ×' : '';
     }
-    document.querySelectorAll('.seg button').forEach((b) => b.addEventListener('click', () => { state.level = b.dataset.level; if (state.level !== 'ads') state.adset = null; drawMeta(); }));
-    picked.addEventListener('click', () => { Object.assign(state, { level: 'campaigns', campaign: null, adset: null }); drawMeta(); });
+    document.querySelectorAll('#levels button').forEach((b) => b.addEventListener('click', () => { st.level = b.dataset.level; if (st.level !== 'ads') st.adset = null; drawMeta(lastP, lastQ); }));
+    picked.addEventListener('click', () => { Object.assign(st, { level: 'campaigns', campaign: null, adset: null }); drawMeta(lastP, lastQ); });
+    $('#hide0').addEventListener('change', (e) => { st.hide0 = e.target.checked; drawMeta(lastP, lastQ); });
     const drill = (tr) => {
       if (!tr || !tr.dataset.key) return;
-      if (state.level === 'campaigns') Object.assign(state, { level: 'adsets', campaign: tr.dataset.key, adset: null });
-      else if (state.level === 'adsets') { const s = M.adsets.find((r) => r.id === tr.dataset.key); Object.assign(state, { level: 'ads', adset: tr.dataset.key, campaign: s ? s.campaign_id : state.campaign }); }
-      drawMeta();
+      if (st.level === 'campaigns') Object.assign(st, { level: 'adsets', campaign: tr.dataset.key, adset: null });
+      else if (st.level === 'adsets') { const s = M.adsets.find((r) => r.id === tr.dataset.key); Object.assign(st, { level: 'ads', adset: tr.dataset.key, campaign: s ? s.campaign_id : st.campaign }); }
+      drawMeta(lastP, lastQ);
     };
     tm.addEventListener('click', (e) => {
       const s = e.target.closest('button.sort');
       if (s) {
         const k = s.dataset.key;
-        if (state.sort === k) state.dir = state.dir === 'asc' ? 'desc' : 'asc';
-        else { const textCol = ['name', 'status', 'campaign_name', 'adset_name', 'result_type'].includes(k); Object.assign(state, { sort: k, dir: textCol ? 'asc' : 'desc' }); }
-        drawMeta(); return;
+        if (st.sort === k) st.dir = st.dir === 'asc' ? 'desc' : 'asc';
+        else Object.assign(st, { sort: k, dir: ['name', 'status', 'campaign_name', 'adset_name', 'result_type'].includes(k) ? 'asc' : 'desc' });
+        drawMeta(lastP, lastQ); return;
       }
       drill(e.target.closest('tr.click'));
     });
     tm.addEventListener('keydown', (e) => { if (e.key === 'Enter') drill(e.target.closest('tr.click')); });
-    drawMeta();
 
-    // Weekly chart
-    const series = [['signups', 'Email sign-ups'], ['started', 'Health checks started'], ['completed', 'Health checks completed']];
-    $('#legend').replaceChildren(...series.map(([, n], i) => { const s = el('span'); const sw = el('i'); sw.style.background = C[i]; s.append(sw, n); return s; }));
-    const weeks = K.weekly.map((r) => ({ ...r, date: new Date(r.week + 'T00:00:00Z') }));
-    const asOfDay = new Date(D.as_of + 'T00:00:00Z');
-    function drawChart() {
+    // Flows
+    const flowName = new Map(K.flows.map((f) => [f.flow_id, f]));
+    function flowAgg([a, b]) {
+      const m = new Map();
+      (K.flows_weekly || []).forEach((r) => { const i = wIdx.get(r.week); if (i == null || i < a || i > b) return; const x = m.get(r.flow_id) || { received: 0, opened: 0, clicked: 0, conversions: 0 }; ['received', 'opened', 'clicked', 'conversions'].forEach((k) => x[k] += r[k]); m.set(r.flow_id, x); });
+      return m;
+    }
+    function drawFlows(P, Q) {
+      const cur = flowAgg(P), prv = Q ? flowAgg(Q) : null;
+      const rows = [...cur].map(([id, x]) => ({ flow: (flowName.get(id) || {}).flow || id, ...x, open_rate: x.received ? Math.min(1, x.opened / x.received) : null, click_rate: x.received ? Math.min(1, x.clicked / x.received) : null, prev: prv ? (prv.get(id) || { received: 0 }).received : null }));
+      const cols = [['flow', txt], ['received', int], ['open_rate', p1], ['click_rate', p1], ['conversions', int], ['d', (v, r) => r.prev == null ? el('span', null, '—') : delta(r.received, r.prev, 1)]];
+      $('#t-flows thead tr').lastElementChild.hidden = !Q;
+      fill($('#t-flows'), rows, Q ? cols : cols.slice(0, -1), { sort: 'received', empty: 'No flow emails sent in this period.' });
+    }
+    // Forms
+    const formMeta = new Map(K.forms.map((f) => [f.form_id, f]));
+    function formAgg([a, b]) { const m = new Map(); (K.forms_weekly || []).forEach((r) => { const i = wIdx.get(r.week); if (i == null || i < a || i > b) return; const x = m.get(r.form_id) || { viewers: 0, submits: 0 }; x.viewers += r.viewers; x.submits += r.submits; m.set(r.form_id, x); }); return m; }
+    function drawForms(P, Q) {
+      const cur = formAgg(P), prv = Q ? formAgg(Q) : null;
+      const rows = [...cur].map(([id, x]) => ({ form: (formMeta.get(id) || {}).form || id, status: (formMeta.get(id) || {}).status || '', ...x, submit_rate: x.viewers ? x.submits / x.viewers : null, prev: prv ? (prv.get(id) || { submits: 0 }).submits : null }));
+      const cols = [['form', txt], ['status', txt], ['viewers', int], ['submits', int], ['submit_rate', p1], ['d', (v, r) => r.prev == null ? el('span', null, '—') : delta(r.submits, r.prev, 1)]];
+      $('#t-forms thead tr').lastElementChild.hidden = !Q;
+      fill($('#t-forms'), rows, Q ? cols : cols.slice(0, -1), { sort: 'submits', empty: 'No form views in this period.' });
+    }
+    // Email campaigns sent in range
+    function drawCamps([a, b]) {
+      const s = new Date(weeks[Math.max(0, a)] + 'T00:00:00Z'), e = new Date(new Date(weeks[b] + 'T00:00:00Z').getTime() + 7 * DAY);
+      const rows = K.campaigns.filter((c) => { const d = new Date(String(c.sent).slice(0, 10) + 'T00:00:00Z'); return d >= s && d < e; });
+      fill($('#t-camps'), rows, [['campaign', txt], ['sent', txt], ['recipients', int], ['open_rate', p1], ['click_rate', p1], ['conversions', int], ['unsubscribes', int]], { empty: 'No email campaigns sent in this period.' });
+    }
+
+    // Weekly chart with selected + previous period shading
+    const lines = [['signups', 'Email sign-ups'], ['started', 'Health checks started'], ['completed', 'Health checks completed']];
+    const wk = K.weekly.map((r) => ({ ...r, date: new Date(r.week + 'T00:00:00Z') })).slice(firstData);
+    const off = firstData;
+    let chartArgs = null;
+    function drawChart(P, Q) {
+      chartArgs = [P, Q];
+      const leg = lines.map(([, n], i) => { const s = el('span'); const sw = el('i'); sw.style.background = C[i]; s.append(sw, n); return s; });
+      const s1 = el('span'); const b1 = el('i', 'box'); b1.style.background = 'rgba(115,99,178,.16)'; s1.append(b1, 'Selected period'); leg.push(s1);
+      if (Q) { const s2 = el('span'); const b2 = el('i', 'box'); b2.style.background = 'rgba(20,24,31,.06)'; s2.append(b2, 'Previous period'); leg.push(s2); }
+      $('#legend').replaceChildren(...leg);
       const box = $('#chart'); const W = Math.max(280, box.clientWidth), H = 280;
       box.replaceChildren(); const tip = el('div', 'tip'); tip.hidden = true; box.appendChild(tip);
       const svg = d3.select(box).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`);
-      const y = d3.scaleLinear([0, d3.max(weeks, (r) => Math.max(r.signups, r.started, r.completed)) || 1], [H - 26, 10]).nice();
+      const y = d3.scaleLinear([0, d3.max(wk, (r) => Math.max(r.signups, r.started, r.completed)) || 1], [H - 26, 10]).nice();
       const yt = y.ticks(4);
       const probe = svg.append('text').attr('font-size', 11).text(d3.format(',')(d3.max(yt))); const left = probe.node().getComputedTextLength() + 12; probe.remove();
-      const x = d3.scaleUtc(d3.extent(weeks, (r) => r.date), [left, W - 10]);
+      const x = d3.scaleUtc(d3.extent(wk, (r) => r.date), [left, W - 10]);
+      const band = (R, fillc) => { const a = Math.max(R[0], off), b = R[1]; if (b < off) return; const xa = x(new Date(weeks[a] + 'T00:00:00Z')) - (a === off ? 0 : (x(wk[1].date) - x(wk[0].date)) / 2); const xb = Math.min(W - 10, x(new Date(weeks[b] + 'T00:00:00Z')) + (b === nW - 1 ? 0 : (x(wk[1].date) - x(wk[0].date)) / 2)); svg.append('rect').attr('x', Math.max(left, xa)).attr('y', 6).attr('width', Math.max(2, xb - Math.max(left, xa))).attr('height', H - 32).attr('fill', fillc).attr('rx', 6); };
+      if (Q) band(Q, 'rgba(20,24,31,.05)');
+      band(P, 'rgba(115,99,178,.13)');
       svg.append('g').selectAll('line').data(yt).join('line').attr('x1', left).attr('x2', W - 10).attr('y1', y).attr('y2', y).attr('stroke', '#ECEBE2');
       svg.append('g').selectAll('text').data(yt).join('text').attr('x', left - 8).attr('y', (v) => y(v) + 4).attr('text-anchor', 'end').attr('font-size', 11).attr('fill', '#5B5F6B').text(d3.format(','));
       const ax = svg.append('g').attr('transform', `translate(0,${H - 26})`).call(d3.axisBottom(x).ticks(Math.max(2, Math.floor(W / 110))).tickFormat(d3.utcFormat('%-d %b')).tickSizeOuter(0));
       ax.attr('font-size', null).attr('font-family', null); ax.selectAll('line, .domain').attr('stroke', '#C9C8BC'); ax.selectAll('text').attr('fill', '#5B5F6B').attr('font-size', 11);
-      const last = weeks[weeks.length - 1]; const partial = last && asOfDay < new Date(+last.date + 7 * 864e5 - 864e5);
-      const done = partial ? weeks.slice(0, -1) : weeks;
-      series.forEach(([k], i) => {
+      const last = wk[wk.length - 1];
+      const done = curPartial ? wk.slice(0, -1) : wk;
+      lines.forEach(([k], i) => {
         const line = d3.line((r) => x(r.date), (r) => y(r[k]));
         svg.append('path').datum(done).attr('fill', 'none').attr('stroke', C[i]).attr('stroke-width', 2).attr('stroke-linecap', 'round').attr('stroke-linejoin', 'round').attr('d', line);
-        if (partial && weeks.length > 1) svg.append('path').datum(weeks.slice(-2)).attr('fill', 'none').attr('stroke', C[i]).attr('stroke-width', 2).attr('stroke-dasharray', '4 4').attr('d', line);
+        if (curPartial && wk.length > 1) svg.append('path').datum(wk.slice(-2)).attr('fill', 'none').attr('stroke', C[i]).attr('stroke-width', 2).attr('stroke-dasharray', '4 4').attr('d', line);
       });
       const rule = svg.append('line').attr('y1', 10).attr('y2', H - 26).attr('stroke', '#C9C8BC').attr('opacity', 0);
-      const dots = series.map((s, i) => svg.append('circle').attr('r', 3.5).attr('fill', C[i]).attr('opacity', 0));
+      const dots = lines.map((s, i) => svg.append('circle').attr('r', 3.5).attr('fill', C[i]).attr('opacity', 0));
       svg.append('rect').attr('x', left).attr('y', 0).attr('width', W - left - 10).attr('height', H).attr('fill', 'transparent')
         .on('mousemove', (ev) => {
-          const [mx] = d3.pointer(ev); const t = x.invert(mx); const r = weeks[d3.minIndex(weeks, (q) => Math.abs(q.date - t))]; const px = x(r.date);
-          rule.attr('x1', px).attr('x2', px).attr('opacity', 1); dots.forEach((c, i) => c.attr('cx', px).attr('cy', y(r[series[i][0]])).attr('opacity', 1));
-          tip.replaceChildren(el('div', 'd', 'Week of ' + d3.utcFormat('%-d %b %Y')(r.date) + (partial && r === last ? ' (week to date)' : '')));
-          series.forEach(([k, n], i) => { const l = el('div'); const sw = el('i'); sw.style.background = C[i]; l.append(sw, n + ': ' + d3.format(',')(r[k])); tip.appendChild(l); });
+          const [mx] = d3.pointer(ev); const t = x.invert(mx); const r = wk[d3.minIndex(wk, (q) => Math.abs(q.date - t))]; const px = x(r.date);
+          rule.attr('x1', px).attr('x2', px).attr('opacity', 1); dots.forEach((c, i) => c.attr('cx', px).attr('cy', y(r[lines[i][0]])).attr('opacity', 1));
+          const i = wIdx.get(r.week);
+          tip.replaceChildren(el('div', 'dd', 'Week of ' + fmtDY(r.date) + (curPartial && r === last ? ' (to date)' : '')));
+          lines.forEach(([k, n], j) => { const l = el('div'); const sw = el('i'); sw.style.background = C[j]; l.append(sw, n + ': ' + d3.format(',')(r[k])); tip.appendChild(l); });
+          tip.appendChild(el('div', 'dd', 'Meta spend: ' + money0(spendW[i])));
           tip.hidden = false; const bw = box.clientWidth; const sx = px * bw / W; tip.style.left = Math.min(Math.max(0, sx + 12), bw - tip.offsetWidth) + 'px'; tip.style.top = '8px';
         })
         .on('mouseleave', () => { tip.hidden = true; rule.attr('opacity', 0); dots.forEach((c) => c.attr('opacity', 0)); });
     }
-    drawChart();
-    let rt; window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(drawChart, 150); });
+    let rt; window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => chartArgs && drawChart(...chartArgs), 150); });
 
-    const foot = $('#foot'); foot.replaceChildren(el('p', null, 'Sources: ' + Object.values(D.sources).join(' · ')), el('p', null, 'Refreshed weekly on Mondays. Spend per completed check is total paid spend ÷ completed checks and does not attribute checks to ads.'));
+    // Controls
+    document.querySelectorAll('#presets button').forEach((b) => b.addEventListener('click', () => {
+      if (b.dataset.p === 'custom' && st.p !== 'custom') { const [a, z] = period(); st.from = Math.max(0, a); st.to = z; }
+      st.p = b.dataset.p; draw();
+    }));
+    sf.addEventListener('change', () => { st.from = +sf.value; draw(); });
+    stt.addEventListener('change', () => { st.to = +stt.value; draw(); });
+    const cmpBox = $('#cmp'); cmpBox.checked = st.cmp; cmpBox.addEventListener('change', () => { st.cmp = cmpBox.checked; draw(); });
+
+    // LinkedIn (separate business, lifetime)
+    fill($('#t-li'), L, [['ad_set', txt], ['status', txt], ['spend', money], ['impressions', int], ['clicks', int], ['ctr', p1], ['cpc', money], ['leads', int], ['cost_per_lead', money]], { sort: 'spend' });
+
+    $('#foot').replaceChildren(
+      el('p', null, 'Sources: ' + Object.values(D.sources).join(' · ')),
+      el('p', null, 'Refreshed weekly on Mondays. Weeks run Monday–Sunday, Melbourne time. "Last week" and the other presets use complete weeks; the previous period is the same number of weeks immediately before. Spend per completed check is Meta spend ÷ completed checks and does not attribute checks to ads.'));
+    draw();
   }
 
   fetch('data.json', { cache: 'no-store' }).then((r) => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); }).then(render)
-    .catch((e) => { document.getElementById('app').replaceChildren(el('div', 'err', 'The data file could not be loaded (' + e.message + '). Try refreshing the page.')); });
+    .catch((e) => { console.error(e); document.getElementById('app').replaceChildren(el('div', 'err', 'The dashboard could not be loaded (' + e.message + '). Try refreshing the page.')); });
 })();
 </script>
 </body>
