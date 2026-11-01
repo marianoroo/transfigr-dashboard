@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-10-28T03:57:52Z",
- "as_of": "2026-10-28",
+ "generated_at": "2026-11-01T22:07:25Z",
+ "as_of": "2026-11-02",
  "sources": {
   "meta": "Meta Ads API via Claude connector, ad account 4085972288327697 (lifetime rows + weekly campaign/ad set rows)",
   "linkedin": "LinkedIn Campaign Manager, account 559843556 (lifetime), read in Chrome",
@@ -11,34 +11,34 @@
    {
     "id": "120250127736910005",
     "name": "Transfigr | Sign Ups",
-    "spend": 1985.75,
-    "impressions": 60394,
+    "spend": 2041.86,
+    "impressions": 61030,
     "reach": null,
-    "clicks": 495,
-    "link_clicks": 362,
+    "clicks": 499,
+    "link_clicks": 365,
     "results": null,
-    "status": "active",
+    "status": "inactive",
     "ctr": 0.0082,
-    "cpc": 4.01,
-    "cpm": 32.88,
+    "cpc": 4.09,
+    "cpm": 33.46,
     "result_type": "Mixed",
     "cost_per_result": null
    },
    {
     "id": "120251011082670005",
     "name": "Engagement Campaign",
-    "spend": 227.12,
-    "impressions": 21177,
+    "spend": 300.71,
+    "impressions": 25399,
     "reach": null,
-    "clicks": 442,
-    "link_clicks": 353,
-    "results": 506,
+    "clicks": 650,
+    "link_clicks": 544,
+    "results": 813,
     "status": "active",
-    "ctr": 0.0209,
-    "cpc": 0.51,
-    "cpm": 10.72,
+    "ctr": 0.0256,
+    "cpc": 0.46,
+    "cpm": 11.84,
     "result_type": "Profile and Page visits",
-    "cost_per_result": 0.45
+    "cost_per_result": 0.37
    },
    {
     "id": "120244622837150005",
@@ -333,56 +333,56 @@
    {
     "id": "120250662857320005",
     "name": "AU | YOUNG FAMILIES | 30-48",
-    "spend": 1443.04,
-    "impressions": 48425,
+    "spend": 1497.53,
+    "impressions": 49034,
     "reach": null,
-    "clicks": 326,
-    "link_clicks": 221,
+    "clicks": 330,
+    "link_clicks": 224,
     "results": 3,
-    "status": "active",
+    "status": "paused",
     "campaign_id": "120250127736910005",
     "campaign_name": "Transfigr | Sign Ups",
     "ctr": 0.0067,
-    "cpc": 4.43,
-    "cpm": 29.8,
+    "cpc": 4.54,
+    "cpm": 30.54,
     "result_type": "health_check_started",
-    "cost_per_result": 481.01
+    "cost_per_result": 499.18
    },
    {
     "id": "120251081166870005",
     "name": "AU | YOUNG FAMILIES | 30-48 | BROAD",
-    "spend": 512.65,
-    "impressions": 10683,
+    "spend": 514.27,
+    "impressions": 10710,
     "reach": null,
     "clicks": 136,
     "link_clicks": 119,
     "results": 2,
-    "status": "active",
+    "status": "paused",
     "campaign_id": "120250127736910005",
     "campaign_name": "Transfigr | Sign Ups",
     "ctr": 0.0127,
-    "cpc": 3.77,
-    "cpm": 47.99,
+    "cpc": 3.78,
+    "cpm": 48.02,
     "result_type": "health_check_started",
-    "cost_per_result": 256.32
+    "cost_per_result": 257.14
    },
    {
     "id": "120251011082680005",
     "name": "How to build emergency fund",
-    "spend": 227.12,
-    "impressions": 21177,
+    "spend": 300.71,
+    "impressions": 25399,
     "reach": null,
-    "clicks": 442,
-    "link_clicks": 353,
-    "results": 506,
+    "clicks": 650,
+    "link_clicks": 544,
+    "results": 813,
     "status": "active",
     "campaign_id": "120251011082670005",
     "campaign_name": "Engagement Campaign",
-    "ctr": 0.0209,
-    "cpc": 0.51,
-    "cpm": 10.72,
+    "ctr": 0.0256,
+    "cpc": 0.46,
+    "cpm": 11.84,
     "result_type": "Profile and Page visits",
-    "cost_per_result": 0.45
+    "cost_per_result": 0.37
    },
    {
     "id": "120244622837460005",
@@ -735,7 +735,7 @@
     "clicks": 0,
     "link_clicks": 0,
     "results": null,
-    "status": "inactive",
+    "status": "paused",
     "campaign_id": "120250127736910005",
     "campaign_name": "Transfigr | Sign Ups",
     "ctr": null,
@@ -753,7 +753,7 @@
     "clicks": 0,
     "link_clicks": 0,
     "results": null,
-    "status": "inactive",
+    "status": "paused",
     "campaign_id": "120250127736910005",
     "campaign_name": "Transfigr | Sign Ups",
     "ctr": null,
@@ -785,93 +785,93 @@
    {
     "id": "120250662877460005",
     "name": "Image - 1 – Copy",
-    "spend": 564.17,
-    "impressions": 16793,
+    "spend": 567.88,
+    "impressions": 16803,
     "reach": null,
     "clicks": 91,
     "link_clicks": 67,
     "results": 1,
-    "status": "active",
+    "status": "inactive",
     "campaign_id": "120250127736910005",
     "campaign_name": "Transfigr | Sign Ups",
     "adset_id": "120250662857320005",
     "adset_name": "AU | YOUNG FAMILIES | 30-48",
     "ctr": 0.0054,
-    "cpc": 6.2,
-    "cpm": 33.6,
+    "cpc": 6.24,
+    "cpm": 33.8,
     "result_type": "health_check_started",
-    "cost_per_result": 564.17
+    "cost_per_result": 567.88
    },
    {
     "id": "120250662877410005",
     "name": "Image - 3 – Copy",
-    "spend": 474.19,
-    "impressions": 13533,
+    "spend": 474.66,
+    "impressions": 13543,
     "reach": null,
     "clicks": 90,
     "link_clicks": 56,
     "results": 2,
-    "status": "active",
+    "status": "inactive",
     "campaign_id": "120250127736910005",
     "campaign_name": "Transfigr | Sign Ups",
     "adset_id": "120250662857320005",
     "adset_name": "AU | YOUNG FAMILIES | 30-48",
-    "ctr": 0.0067,
+    "ctr": 0.0066,
     "cpc": 5.27,
-    "cpm": 35.04,
+    "cpm": 35.05,
     "result_type": "health_check_started",
-    "cost_per_result": 237.09
-   },
-   {
-    "id": "120251081166940005",
-    "name": "Image - 1 – Copy",
-    "spend": 293.5,
-    "impressions": 6155,
-    "reach": null,
-    "clicks": 69,
-    "link_clicks": 58,
-    "results": 1,
-    "status": "active",
-    "campaign_id": "120250127736910005",
-    "campaign_name": "Transfigr | Sign Ups",
-    "adset_id": "120251081166870005",
-    "adset_name": "AU | YOUNG FAMILIES | 30-48 | BROAD",
-    "ctr": 0.0112,
-    "cpc": 4.25,
-    "cpm": 47.68,
-    "result_type": "health_check_started",
-    "cost_per_result": 293.5
+    "cost_per_result": 237.33
    },
    {
     "id": "120251011082660005",
     "name": "How to build emergency fund",
-    "spend": 233.03,
-    "impressions": 21445,
+    "spend": 300.71,
+    "impressions": 25399,
     "reach": null,
-    "clicks": 458,
-    "link_clicks": 366,
-    "results": 522,
+    "clicks": 650,
+    "link_clicks": 544,
+    "results": 813,
     "status": "active",
     "campaign_id": "120251011082670005",
     "campaign_name": "Engagement Campaign",
     "adset_id": "120251011082680005",
     "adset_name": "How to build emergency fund",
-    "ctr": 0.0214,
-    "cpc": 0.51,
-    "cpm": 10.87,
+    "ctr": 0.0256,
+    "cpc": 0.46,
+    "cpm": 11.84,
     "result_type": "Profile and Page visits",
-    "cost_per_result": 0.45
+    "cost_per_result": 0.37
+   },
+   {
+    "id": "120251081166940005",
+    "name": "Image - 1 – Copy",
+    "spend": 294.64,
+    "impressions": 6170,
+    "reach": null,
+    "clicks": 69,
+    "link_clicks": 58,
+    "results": 1,
+    "status": "inactive",
+    "campaign_id": "120250127736910005",
+    "campaign_name": "Transfigr | Sign Ups",
+    "adset_id": "120251081166870005",
+    "adset_name": "AU | YOUNG FAMILIES | 30-48 | BROAD",
+    "ctr": 0.0112,
+    "cpc": 4.27,
+    "cpm": 47.75,
+    "result_type": "health_check_started",
+    "cost_per_result": 294.64
    },
    {
     "id": "120250662877450005",
     "name": "Videos – 3 – Copy",
-    "spend": 173.96,
+    "spend": 173.97,
     "impressions": 5863,
     "reach": null,
     "clicks": 63,
     "link_clicks": 41,
     "results": null,
-    "status": "active",
+    "status": "inactive",
     "campaign_id": "120250127736910005",
     "campaign_name": "Transfigr | Sign Ups",
     "adset_id": "120250662857320005",
@@ -885,22 +885,22 @@
    {
     "id": "120251081166950005",
     "name": "Image - 3 – Copy",
-    "spend": 152.22,
-    "impressions": 3507,
+    "spend": 152.36,
+    "impressions": 3510,
     "reach": null,
     "clicks": 49,
     "link_clicks": 48,
     "results": 1,
-    "status": "active",
+    "status": "inactive",
     "campaign_id": "120250127736910005",
     "campaign_name": "Transfigr | Sign Ups",
     "adset_id": "120251081166870005",
     "adset_name": "AU | YOUNG FAMILIES | 30-48 | BROAD",
     "ctr": 0.014,
     "cpc": 3.11,
-    "cpm": 43.4,
+    "cpm": 43.41,
     "result_type": "health_check_started",
-    "cost_per_result": 152.22
+    "cost_per_result": 152.36
    },
    {
     "id": "120250662877420005",
@@ -911,7 +911,7 @@
     "clicks": 35,
     "link_clicks": 25,
     "results": null,
-    "status": "active",
+    "status": "inactive",
     "campaign_id": "120250127736910005",
     "campaign_name": "Transfigr | Sign Ups",
     "adset_id": "120250662857320005",
@@ -1205,7 +1205,7 @@
    {
     "id": "120250662877430005",
     "name": "Videos – 1 – Copy",
-    "spend": 46.98,
+    "spend": 46.96,
     "impressions": 2806,
     "reach": null,
     "clicks": 17,
@@ -1231,7 +1231,7 @@
     "clicks": 9,
     "link_clicks": 7,
     "results": null,
-    "status": "active",
+    "status": "inactive",
     "campaign_id": "120250127736910005",
     "campaign_name": "Transfigr | Sign Ups",
     "adset_id": "120251081166870005",
@@ -1271,7 +1271,7 @@
     "clicks": 9,
     "link_clicks": 6,
     "results": null,
-    "status": "active",
+    "status": "inactive",
     "campaign_id": "120250127736910005",
     "campaign_name": "Transfigr | Sign Ups",
     "adset_id": "120251081166870005",
@@ -1345,7 +1345,7 @@
    {
     "id": "120250662877440005",
     "name": "Image - 2 – Copy",
-    "spend": 17.76,
+    "spend": 17.75,
     "impressions": 1724,
     "reach": null,
     "clicks": 8,
@@ -1746,20 +1746,20 @@
     {
      "week": "2026-10-26",
      "id": "120250127736910005",
-     "spend": 145.26,
-     "impressions": 1896,
-     "clicks": 26,
-     "link_clicks": 18,
+     "spend": 201.37,
+     "impressions": 2532,
+     "clicks": 30,
+     "link_clicks": 21,
      "results": null
     },
     {
      "week": "2026-10-26",
      "id": "120251011082670005",
-     "spend": 25.06,
-     "impressions": 1161,
-     "clicks": 45,
-     "link_clicks": 31,
-     "results": 41
+     "spend": 95.39,
+     "impressions": 5168,
+     "clicks": 249,
+     "link_clicks": 220,
+     "results": 345
     }
    ],
    "adsets": [
@@ -2162,26 +2162,26 @@
     {
      "week": "2026-10-26",
      "id": "120250662857320005",
-     "spend": 125.87,
-     "impressions": 1695,
-     "clicks": 21,
-     "link_clicks": 15,
+     "spend": 180.36,
+     "impressions": 2304,
+     "clicks": 25,
+     "link_clicks": 18,
      "results": null
     },
     {
      "week": "2026-10-26",
      "id": "120251011082680005",
-     "spend": 25.06,
-     "impressions": 1161,
-     "clicks": 45,
-     "link_clicks": 31,
-     "results": 41
+     "spend": 95.39,
+     "impressions": 5168,
+     "clicks": 249,
+     "link_clicks": 220,
+     "results": 345
     },
     {
      "week": "2026-10-26",
      "id": "120251081166870005",
-     "spend": 19.39,
-     "impressions": 201,
+     "spend": 21.01,
+     "impressions": 228,
      "clicks": 5,
      "link_clicks": 3,
      "results": 1
@@ -2436,6 +2436,12 @@
     "signups": 1,
     "started": 2,
     "completed": 1
+   },
+   {
+    "week": "2026-11-02",
+    "signups": 0,
+    "started": 0,
+    "completed": 0
    }
   ],
   "flows": [
@@ -2443,9 +2449,9 @@
     "flow_id": "UFPGam",
     "flow": "Welcomer Series",
     "status": "live",
-    "recipients": 133,
-    "open_rate": 0.5227,
-    "click_rate": 0.053,
+    "recipients": 137,
+    "open_rate": 0.5368,
+    "click_rate": 0.0515,
     "conversions": 3,
     "unsubscribes": 0
    },
@@ -2485,9 +2491,9 @@
     "form_id": "TDhqfB",
     "form": "Email Full Page",
     "status": "live",
-    "viewers": 1084,
+    "viewers": 1121,
     "submits": 59,
-    "submit_rate": 0.04275
+    "submit_rate": 0.04117
    },
    {
     "form_id": "Tk8ETn",
@@ -2551,15 +2557,15 @@
    },
    {
     "week": "2026-03-02",
-    "form_id": "UBWcJp",
-    "viewers": 7,
-    "submits": 0
-   },
-   {
-    "week": "2026-03-02",
     "form_id": "XsZpjf",
     "viewers": 15,
     "submits": 7
+   },
+   {
+    "week": "2026-03-02",
+    "form_id": "UBWcJp",
+    "viewers": 7,
+    "submits": 0
    },
    {
     "week": "2026-03-02",
@@ -2576,12 +2582,6 @@
    {
     "week": "2026-03-09",
     "form_id": "Xzb9Lg",
-    "viewers": 5,
-    "submits": 0
-   },
-   {
-    "week": "2026-03-16",
-    "form_id": "UBWcJp",
     "viewers": 5,
     "submits": 0
    },
@@ -2593,20 +2593,26 @@
    },
    {
     "week": "2026-03-16",
+    "form_id": "UBWcJp",
+    "viewers": 5,
+    "submits": 0
+   },
+   {
+    "week": "2026-03-16",
     "form_id": "Xzb9Lg",
     "viewers": 28,
     "submits": 0
    },
    {
     "week": "2026-03-23",
-    "form_id": "UBWcJp",
-    "viewers": 11,
+    "form_id": "XsZpjf",
+    "viewers": 5,
     "submits": 0
    },
    {
     "week": "2026-03-23",
-    "form_id": "XsZpjf",
-    "viewers": 5,
+    "form_id": "UBWcJp",
+    "viewers": 11,
     "submits": 0
    },
    {
@@ -2623,26 +2629,26 @@
    },
    {
     "week": "2026-04-13",
-    "form_id": "UBWcJp",
-    "viewers": 5,
-    "submits": 0
-   },
-   {
-    "week": "2026-04-13",
     "form_id": "XsZpjf",
     "viewers": 3,
     "submits": 0
    },
    {
-    "week": "2026-04-27",
+    "week": "2026-04-13",
     "form_id": "UBWcJp",
-    "viewers": 1,
+    "viewers": 5,
     "submits": 0
    },
    {
     "week": "2026-04-27",
     "form_id": "XsZpjf",
     "viewers": 7,
+    "submits": 0
+   },
+   {
+    "week": "2026-04-27",
+    "form_id": "UBWcJp",
+    "viewers": 1,
     "submits": 0
    },
    {
@@ -2882,7 +2888,13 @@
    {
     "week": "2026-10-26",
     "form_id": "TDhqfB",
-    "viewers": 9,
+    "viewers": 46,
+    "submits": 0
+   },
+   {
+    "week": "2026-11-02",
+    "form_id": "TDhqfB",
+    "viewers": 1,
     "submits": 0
    }
   ],
@@ -3011,7 +3023,7 @@
     "week": "2026-10-26",
     "flow_id": "UFPGam",
     "received": 3,
-    "opened": 3,
+    "opened": 11,
     "clicked": 0,
     "conversions": 0
    }
