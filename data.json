@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-11-01T22:07:25Z",
- "as_of": "2026-11-02",
+ "generated_at": "2026-11-08T22:05:21Z",
+ "as_of": "2026-11-09",
  "sources": {
   "meta": "Meta Ads API via Claude connector, ad account 4085972288327697 (lifetime rows + weekly campaign/ad set rows)",
   "linkedin": "LinkedIn Campaign Manager, account 559843556 (lifetime), read in Chrome",
@@ -27,18 +27,18 @@
    {
     "id": "120251011082670005",
     "name": "Engagement Campaign",
-    "spend": 300.71,
-    "impressions": 25399,
-    "reach": null,
-    "clicks": 650,
-    "link_clicks": 544,
-    "results": 813,
+    "spend": 411.02,
+    "impressions": 35320,
+    "reach": 18328,
+    "clicks": 857,
+    "link_clicks": 690,
+    "results": 1021,
     "status": "active",
-    "ctr": 0.0256,
-    "cpc": 0.46,
-    "cpm": 11.84,
+    "ctr": 0.0243,
+    "cpc": 0.48,
+    "cpm": 11.64,
     "result_type": "Profile and Page visits",
-    "cost_per_result": 0.37
+    "cost_per_result": 0.4
    },
    {
     "id": "120244622837150005",
@@ -369,20 +369,20 @@
    {
     "id": "120251011082680005",
     "name": "How to build emergency fund",
-    "spend": 300.71,
-    "impressions": 25399,
-    "reach": null,
-    "clicks": 650,
-    "link_clicks": 544,
-    "results": 813,
+    "spend": 411.02,
+    "impressions": 35320,
+    "reach": 18328,
+    "clicks": 857,
+    "link_clicks": 690,
+    "results": 1021,
     "status": "active",
     "campaign_id": "120251011082670005",
     "campaign_name": "Engagement Campaign",
-    "ctr": 0.0256,
-    "cpc": 0.46,
-    "cpm": 11.84,
+    "ctr": 0.0243,
+    "cpc": 0.48,
+    "cpm": 11.64,
     "result_type": "Profile and Page visits",
-    "cost_per_result": 0.37
+    "cost_per_result": 0.4
    },
    {
     "id": "120244622837460005",
@@ -825,22 +825,22 @@
    {
     "id": "120251011082660005",
     "name": "How to build emergency fund",
-    "spend": 300.71,
-    "impressions": 25399,
-    "reach": null,
-    "clicks": 650,
-    "link_clicks": 544,
-    "results": 813,
+    "spend": 411.02,
+    "impressions": 35320,
+    "reach": 18328,
+    "clicks": 857,
+    "link_clicks": 690,
+    "results": 1021,
     "status": "active",
     "campaign_id": "120251011082670005",
     "campaign_name": "Engagement Campaign",
     "adset_id": "120251011082680005",
     "adset_name": "How to build emergency fund",
-    "ctr": 0.0256,
-    "cpc": 0.46,
-    "cpm": 11.84,
+    "ctr": 0.0243,
+    "cpc": 0.48,
+    "cpm": 11.64,
     "result_type": "Profile and Page visits",
-    "cost_per_result": 0.37
+    "cost_per_result": 0.4
    },
    {
     "id": "120251081166940005",
@@ -1361,6 +1361,26 @@
     "cpm": 10.3,
     "result_type": "health_check_started",
     "cost_per_result": null
+   },
+   {
+    "id": "120245787342120005",
+    "name": "Instagram post: Still getting your head around...",
+    "spend": 0.0,
+    "impressions": 0,
+    "reach": null,
+    "clicks": 0,
+    "link_clicks": null,
+    "results": null,
+    "status": "not approved",
+    "campaign_id": "120245787341140005",
+    "campaign_name": "Instagram post: Still getting your head around...",
+    "adset_id": "120245787341330005",
+    "adset_name": "Instagram post: Still getting your head around...",
+    "ctr": null,
+    "cpc": null,
+    "cpm": null,
+    "result_type": "Instagram profile visits",
+    "cost_per_result": null
    }
   ],
   "weekly": {
@@ -1755,11 +1775,20 @@
     {
      "week": "2026-10-26",
      "id": "120251011082670005",
-     "spend": 95.39,
-     "impressions": 5168,
+     "spend": 95.41,
+     "impressions": 5172,
      "clicks": 249,
      "link_clicks": 220,
      "results": 345
+    },
+    {
+     "week": "2026-11-02",
+     "id": "120251011082670005",
+     "spend": 108.97,
+     "impressions": 9710,
+     "clicks": 205,
+     "link_clicks": 143,
+     "results": 205
     }
    ],
    "adsets": [
@@ -2171,8 +2200,8 @@
     {
      "week": "2026-10-26",
      "id": "120251011082680005",
-     "spend": 95.39,
-     "impressions": 5168,
+     "spend": 95.41,
+     "impressions": 5172,
      "clicks": 249,
      "link_clicks": 220,
      "results": 345
@@ -2185,6 +2214,15 @@
      "clicks": 5,
      "link_clicks": 3,
      "results": 1
+    },
+    {
+     "week": "2026-11-02",
+     "id": "120251011082680005",
+     "spend": 108.97,
+     "impressions": 9710,
+     "clicks": 205,
+     "link_clicks": 143,
+     "results": 205
     }
    ]
   }
@@ -2442,6 +2480,12 @@
     "signups": 0,
     "started": 0,
     "completed": 0
+   },
+   {
+    "week": "2026-11-09",
+    "signups": 0,
+    "started": 0,
+    "completed": 0
    }
   ],
   "flows": [
@@ -2491,9 +2535,9 @@
     "form_id": "TDhqfB",
     "form": "Email Full Page",
     "status": "live",
-    "viewers": 1121,
+    "viewers": 1156,
     "submits": 59,
-    "submit_rate": 0.04117
+    "submit_rate": 0.03968
    },
    {
     "form_id": "Tk8ETn",
@@ -2513,7 +2557,7 @@
    },
    {
     "form_id": "UBWcJp",
-    "form": "T | Event Subscribers - ",
+    "form": "T | Event Subscribers -",
     "status": "live",
     "viewers": 77,
     "submits": 1,
@@ -2550,10 +2594,190 @@
   ],
   "forms_weekly": [
    {
-    "week": "2026-02-23",
-    "form_id": "UBWcJp",
+    "week": "2026-08-03",
+    "form_id": "TDhqfB",
+    "viewers": 41,
+    "submits": 2
+   },
+   {
+    "week": "2026-08-10",
+    "form_id": "TDhqfB",
+    "viewers": 53,
+    "submits": 1
+   },
+   {
+    "week": "2026-08-17",
+    "form_id": "TDhqfB",
+    "viewers": 19,
+    "submits": 0
+   },
+   {
+    "week": "2026-08-24",
+    "form_id": "TDhqfB",
+    "viewers": 115,
+    "submits": 3
+   },
+   {
+    "week": "2026-08-31",
+    "form_id": "TDhqfB",
+    "viewers": 57,
+    "submits": 0
+   },
+   {
+    "week": "2026-09-07",
+    "form_id": "TDhqfB",
+    "viewers": 58,
+    "submits": 1
+   },
+   {
+    "week": "2026-09-14",
+    "form_id": "TDhqfB",
+    "viewers": 218,
+    "submits": 44
+   },
+   {
+    "week": "2026-09-21",
+    "form_id": "TDhqfB",
+    "viewers": 113,
+    "submits": 0
+   },
+   {
+    "week": "2026-09-28",
+    "form_id": "TDhqfB",
+    "viewers": 147,
+    "submits": 3
+   },
+   {
+    "week": "2026-10-05",
+    "form_id": "TDhqfB",
+    "viewers": 117,
+    "submits": 2
+   },
+   {
+    "week": "2026-10-12",
+    "form_id": "TDhqfB",
+    "viewers": 145,
+    "submits": 3
+   },
+   {
+    "week": "2026-10-19",
+    "form_id": "TDhqfB",
+    "viewers": 118,
+    "submits": 0
+   },
+   {
+    "week": "2026-10-26",
+    "form_id": "TDhqfB",
+    "viewers": 46,
+    "submits": 0
+   },
+   {
+    "week": "2026-11-02",
+    "form_id": "TDhqfB",
+    "viewers": 43,
+    "submits": 0
+   },
+   {
+    "week": "2026-11-09",
+    "form_id": "TDhqfB",
     "viewers": 1,
     "submits": 0
+   },
+   {
+    "week": "2026-07-27",
+    "form_id": "Tk8ETn",
+    "viewers": 42,
+    "submits": 9
+   },
+   {
+    "week": "2026-08-03",
+    "form_id": "Tk8ETn",
+    "viewers": 39,
+    "submits": 1
+   },
+   {
+    "week": "2026-08-10",
+    "form_id": "Tk8ETn",
+    "viewers": 6,
+    "submits": 0
+   },
+   {
+    "week": "2026-08-17",
+    "form_id": "Tk8ETn",
+    "viewers": 1,
+    "submits": 0
+   },
+   {
+    "week": "2026-08-24",
+    "form_id": "Tk8ETn",
+    "viewers": 8,
+    "submits": 6
+   },
+   {
+    "week": "2026-08-31",
+    "form_id": "Tk8ETn",
+    "viewers": 3,
+    "submits": 0
+   },
+   {
+    "week": "2026-09-07",
+    "form_id": "Tk8ETn",
+    "viewers": 3,
+    "submits": 2
+   },
+   {
+    "week": "2026-09-14",
+    "form_id": "Tk8ETn",
+    "viewers": 8,
+    "submits": 6
+   },
+   {
+    "week": "2026-09-21",
+    "form_id": "Tk8ETn",
+    "viewers": 11,
+    "submits": 3
+   },
+   {
+    "week": "2026-09-28",
+    "form_id": "Tk8ETn",
+    "viewers": 13,
+    "submits": 7
+   },
+   {
+    "week": "2026-10-05",
+    "form_id": "Tk8ETn",
+    "viewers": 4,
+    "submits": 1
+   },
+   {
+    "week": "2026-10-12",
+    "form_id": "Tk8ETn",
+    "viewers": 1,
+    "submits": 0
+   },
+   {
+    "week": "2026-10-19",
+    "form_id": "Tk8ETn",
+    "viewers": 5,
+    "submits": 0
+   },
+   {
+    "week": "2026-09-14",
+    "form_id": "U2JC9C",
+    "viewers": 12,
+    "submits": 3
+   },
+   {
+    "week": "2026-09-28",
+    "form_id": "U2JC9C",
+    "viewers": 13,
+    "submits": 8
+   },
+   {
+    "week": "2026-10-05",
+    "form_id": "U2JC9C",
+    "viewers": 1,
+    "submits": 2
    },
    {
     "week": "2026-03-02",
@@ -2562,28 +2786,10 @@
     "submits": 7
    },
    {
-    "week": "2026-03-02",
-    "form_id": "UBWcJp",
-    "viewers": 7,
-    "submits": 0
-   },
-   {
-    "week": "2026-03-02",
-    "form_id": "Xzb9Lg",
-    "viewers": 6,
-    "submits": 0
-   },
-   {
     "week": "2026-03-09",
     "form_id": "XsZpjf",
     "viewers": 6,
     "submits": 1
-   },
-   {
-    "week": "2026-03-09",
-    "form_id": "Xzb9Lg",
-    "viewers": 5,
-    "submits": 0
    },
    {
     "week": "2026-03-16",
@@ -2592,27 +2798,9 @@
     "submits": 1
    },
    {
-    "week": "2026-03-16",
-    "form_id": "UBWcJp",
-    "viewers": 5,
-    "submits": 0
-   },
-   {
-    "week": "2026-03-16",
-    "form_id": "Xzb9Lg",
-    "viewers": 28,
-    "submits": 0
-   },
-   {
     "week": "2026-03-23",
     "form_id": "XsZpjf",
     "viewers": 5,
-    "submits": 0
-   },
-   {
-    "week": "2026-03-23",
-    "form_id": "UBWcJp",
-    "viewers": 11,
     "submits": 0
    },
    {
@@ -2622,33 +2810,15 @@
     "submits": 0
    },
    {
-    "week": "2026-04-06",
-    "form_id": "UBWcJp",
-    "viewers": 1,
-    "submits": 0
-   },
-   {
     "week": "2026-04-13",
     "form_id": "XsZpjf",
     "viewers": 3,
     "submits": 0
    },
    {
-    "week": "2026-04-13",
-    "form_id": "UBWcJp",
-    "viewers": 5,
-    "submits": 0
-   },
-   {
     "week": "2026-04-27",
     "form_id": "XsZpjf",
     "viewers": 7,
-    "submits": 0
-   },
-   {
-    "week": "2026-04-27",
-    "form_id": "UBWcJp",
-    "viewers": 1,
     "submits": 0
    },
    {
@@ -2712,247 +2882,79 @@
     "submits": 0
    },
    {
+    "week": "2026-02-23",
+    "form_id": "UBWcJp",
+    "viewers": 1,
+    "submits": 0
+   },
+   {
+    "week": "2026-03-02",
+    "form_id": "UBWcJp",
+    "viewers": 7,
+    "submits": 0
+   },
+   {
+    "week": "2026-03-16",
+    "form_id": "UBWcJp",
+    "viewers": 5,
+    "submits": 0
+   },
+   {
+    "week": "2026-03-23",
+    "form_id": "UBWcJp",
+    "viewers": 11,
+    "submits": 0
+   },
+   {
+    "week": "2026-04-06",
+    "form_id": "UBWcJp",
+    "viewers": 1,
+    "submits": 0
+   },
+   {
+    "week": "2026-04-13",
+    "form_id": "UBWcJp",
+    "viewers": 5,
+    "submits": 0
+   },
+   {
+    "week": "2026-04-27",
+    "form_id": "UBWcJp",
+    "viewers": 1,
+    "submits": 0
+   },
+   {
     "week": "2026-07-20",
     "form_id": "UBWcJp",
     "viewers": 1,
     "submits": 0
    },
    {
-    "week": "2026-07-27",
-    "form_id": "Tk8ETn",
-    "viewers": 42,
-    "submits": 9
-   },
-   {
-    "week": "2026-08-03",
-    "form_id": "TDhqfB",
-    "viewers": 41,
-    "submits": 2
-   },
-   {
-    "week": "2026-08-03",
-    "form_id": "Tk8ETn",
-    "viewers": 39,
-    "submits": 1
-   },
-   {
-    "week": "2026-08-10",
-    "form_id": "TDhqfB",
-    "viewers": 53,
-    "submits": 1
-   },
-   {
-    "week": "2026-08-10",
-    "form_id": "Tk8ETn",
+    "week": "2026-03-02",
+    "form_id": "Xzb9Lg",
     "viewers": 6,
     "submits": 0
    },
    {
-    "week": "2026-08-17",
-    "form_id": "TDhqfB",
-    "viewers": 19,
-    "submits": 0
-   },
-   {
-    "week": "2026-08-17",
-    "form_id": "Tk8ETn",
-    "viewers": 1,
-    "submits": 0
-   },
-   {
-    "week": "2026-08-24",
-    "form_id": "TDhqfB",
-    "viewers": 115,
-    "submits": 3
-   },
-   {
-    "week": "2026-08-24",
-    "form_id": "Tk8ETn",
-    "viewers": 8,
-    "submits": 6
-   },
-   {
-    "week": "2026-08-31",
-    "form_id": "TDhqfB",
-    "viewers": 57,
-    "submits": 0
-   },
-   {
-    "week": "2026-08-31",
-    "form_id": "Tk8ETn",
-    "viewers": 3,
-    "submits": 0
-   },
-   {
-    "week": "2026-09-07",
-    "form_id": "TDhqfB",
-    "viewers": 58,
-    "submits": 1
-   },
-   {
-    "week": "2026-09-07",
-    "form_id": "Tk8ETn",
-    "viewers": 3,
-    "submits": 2
-   },
-   {
-    "week": "2026-09-14",
-    "form_id": "TDhqfB",
-    "viewers": 218,
-    "submits": 44
-   },
-   {
-    "week": "2026-09-14",
-    "form_id": "Tk8ETn",
-    "viewers": 8,
-    "submits": 6
-   },
-   {
-    "week": "2026-09-14",
-    "form_id": "U2JC9C",
-    "viewers": 12,
-    "submits": 3
-   },
-   {
-    "week": "2026-09-21",
-    "form_id": "TDhqfB",
-    "viewers": 113,
-    "submits": 0
-   },
-   {
-    "week": "2026-09-21",
-    "form_id": "Tk8ETn",
-    "viewers": 11,
-    "submits": 3
-   },
-   {
-    "week": "2026-09-28",
-    "form_id": "TDhqfB",
-    "viewers": 147,
-    "submits": 3
-   },
-   {
-    "week": "2026-09-28",
-    "form_id": "Tk8ETn",
-    "viewers": 13,
-    "submits": 7
-   },
-   {
-    "week": "2026-09-28",
-    "form_id": "U2JC9C",
-    "viewers": 13,
-    "submits": 8
-   },
-   {
-    "week": "2026-10-05",
-    "form_id": "TDhqfB",
-    "viewers": 117,
-    "submits": 2
-   },
-   {
-    "week": "2026-10-05",
-    "form_id": "Tk8ETn",
-    "viewers": 4,
-    "submits": 1
-   },
-   {
-    "week": "2026-10-05",
-    "form_id": "U2JC9C",
-    "viewers": 1,
-    "submits": 2
-   },
-   {
-    "week": "2026-10-12",
-    "form_id": "TDhqfB",
-    "viewers": 145,
-    "submits": 3
-   },
-   {
-    "week": "2026-10-12",
-    "form_id": "Tk8ETn",
-    "viewers": 1,
-    "submits": 0
-   },
-   {
-    "week": "2026-10-19",
-    "form_id": "TDhqfB",
-    "viewers": 118,
-    "submits": 0
-   },
-   {
-    "week": "2026-10-19",
-    "form_id": "Tk8ETn",
+    "week": "2026-03-09",
+    "form_id": "Xzb9Lg",
     "viewers": 5,
     "submits": 0
    },
    {
-    "week": "2026-10-26",
-    "form_id": "TDhqfB",
-    "viewers": 46,
-    "submits": 0
-   },
-   {
-    "week": "2026-11-02",
-    "form_id": "TDhqfB",
-    "viewers": 1,
+    "week": "2026-03-16",
+    "form_id": "Xzb9Lg",
+    "viewers": 28,
     "submits": 0
    }
   ],
   "flows_weekly": [
-   {
-    "week": "2026-05-25",
-    "flow_id": "Ugqx6u",
-    "received": 1,
-    "opened": 1,
-    "clicked": 1,
-    "conversions": 0
-   },
-   {
-    "week": "2026-06-01",
-    "flow_id": "Ugqx6u",
-    "received": 1,
-    "opened": 1,
-    "clicked": 1,
-    "conversions": 0
-   },
-   {
-    "week": "2026-06-01",
-    "flow_id": "Vrjaa6",
-    "received": 2,
-    "opened": 2,
-    "clicked": 1,
-    "conversions": 0
-   },
-   {
-    "week": "2026-07-27",
-    "flow_id": "WpX98y",
-    "received": 4,
-    "opened": 3,
-    "clicked": 0,
-    "conversions": 0
-   },
-   {
-    "week": "2026-08-03",
-    "flow_id": "WpX98y",
-    "received": 1,
-    "opened": 1,
-    "clicked": 0,
-    "conversions": 0
-   },
    {
     "week": "2026-08-24",
     "flow_id": "UFPGam",
     "received": 1,
     "opened": 1,
     "clicked": 0,
-    "conversions": 0
-   },
-   {
-    "week": "2026-08-24",
-    "flow_id": "WpX98y",
-    "received": 3,
-    "opened": 1,
-    "clicked": 1,
     "conversions": 0
    },
    {
@@ -3025,6 +3027,54 @@
     "received": 3,
     "opened": 11,
     "clicked": 0,
+    "conversions": 0
+   },
+   {
+    "week": "2026-05-25",
+    "flow_id": "Ugqx6u",
+    "received": 1,
+    "opened": 1,
+    "clicked": 1,
+    "conversions": 0
+   },
+   {
+    "week": "2026-06-01",
+    "flow_id": "Ugqx6u",
+    "received": 1,
+    "opened": 1,
+    "clicked": 1,
+    "conversions": 0
+   },
+   {
+    "week": "2026-06-01",
+    "flow_id": "Vrjaa6",
+    "received": 2,
+    "opened": 2,
+    "clicked": 1,
+    "conversions": 0
+   },
+   {
+    "week": "2026-07-27",
+    "flow_id": "WpX98y",
+    "received": 4,
+    "opened": 3,
+    "clicked": 0,
+    "conversions": 0
+   },
+   {
+    "week": "2026-08-03",
+    "flow_id": "WpX98y",
+    "received": 1,
+    "opened": 1,
+    "clicked": 0,
+    "conversions": 0
+   },
+   {
+    "week": "2026-08-24",
+    "flow_id": "WpX98y",
+    "received": 3,
+    "opened": 1,
+    "clicked": 1,
     "conversions": 0
    }
   ]
